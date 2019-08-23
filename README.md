@@ -24,9 +24,39 @@ No Scrum existem alguns termos específico que precisam ser entendido antes de s
 
 * **Daily Scrum**: reuniões diárias com a equipe, que ficam em pé para acompanhar as Sprints. São feitas discussões rápidas para ter noção do que está sendo feito para atingir as metas e descobrir se tem algum obstáculo.
 
-* **Product Owner**: dono do produto, que será o principal intermediário entre a equipe e o cliente, responsável por gerenciar o Product Backlog.
+* **Product Owner ou P.O+**: dono do produto, que será o principal intermediário entre a equipe e o cliente, responsável por gerenciar o Product Backlog.
 
 * **Sprint Backlog**: Lista de atividades do projeto que devem ser realizada pela equipe, de acordo com os requisitos e prioridades do cliente.
 
 * **Sprint Review Meeting**: Revisão do que foi feito, executada no final de cada Sprint. Nessa reunião haverá uma comparação entre os requisitos do cliente e o que já foi feito, se for necessário fazer modificação no Product Backlog.
+
+
+## 2. Como funciona o Scrum
+O Scrum funciona com um ciclo bem definido. A imagem a seguir apresenta este ciclo.
+
+![](https://i.imgur.com/o1CHjlo.png)
+
+### 2.1. Sprint Planning
+Toda Sprint do Scrum começa com uma reunião, para entendermos os itens a serem feitos e planejar o que cabe no tempo da Sprint. Todos do time devem participar desta reunião. Para o Planning Meeting, o Product Owner já deve ter olhado as histórias prioritárias do projeto, quebrando em funcionalidades menores que ainda agregam algum valor para o cliente.
+
+A reunião começa com o P.O explicando o item de maior prioridade da aplicação. Então, os desenvolvedores tiram as dúvidas com o P.O, quebram a funcionlidade em sub-itens técnicos e discutem a dificuldade de implementação do item, para que consigam atribuir uma estimativa de esforço. Então os sub-itens são alocados dentro da Sprint. Isto se repete para os proximos itens prioritarios do Product backlog. Então os desevolvedores negociam com o P.O quais desses itens serão feitos na Sprint, definindo assim o Sprint Backlog.
+
+Uma dica é utilizar o método de criar histórias para cada funcionalidade do sistema. Essas histórias devem ter um título e 3 itens: 
+
+* o porque é necessário;
+* para quem será útil;
+* o pedido de fato.
+
+O modelo a seguir pode ser um exemplo:
+
+**[TITULO]**
+
+**Para que ...** [por que o pedido é importante]
+
+**No papel de  ...**[para quem é importante]
+
+**Quero que ...**[o pedido em si]
+
+
+
 
