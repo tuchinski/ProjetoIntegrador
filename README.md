@@ -24,7 +24,7 @@ No Scrum existem alguns termos específico que precisam ser entendido antes de s
 
 * **Daily Scrum**: reuniões diárias com a equipe, que ficam em pé para acompanhar as Sprints. São feitas discussões rápidas para ter noção do que está sendo feito para atingir as metas e descobrir se tem algum obstáculo.
 
-* **Product Owner ou P.O+**: dono do produto, que será o principal intermediário entre a equipe e o cliente, responsável por gerenciar o Product Backlog.
+* **Product Owner ou P.O**: dono do produto, que será o principal intermediário entre a equipe e o cliente, responsável por gerenciar o Product Backlog.
 
 * **Sprint Backlog**: Lista de atividades do projeto que devem ser realizada pela equipe, de acordo com os requisitos e prioridades do cliente.
 
@@ -41,6 +41,8 @@ Toda Sprint do Scrum começa com uma reunião, para entendermos os itens a serem
 
 A reunião começa com o P.O explicando o item de maior prioridade da aplicação. Então, os desenvolvedores tiram as dúvidas com o P.O, quebram a funcionlidade em sub-itens técnicos e discutem a dificuldade de implementação do item, para que consigam atribuir uma estimativa de esforço. Então os sub-itens são alocados dentro da Sprint. Isto se repete para os proximos itens prioritarios do Product backlog. Então os desevolvedores negociam com o P.O quais desses itens serão feitos na Sprint, definindo assim o Sprint Backlog.
 
+Um outro ponto muito importante é definir um critério de Pronto. Isso deve ser um acordo entre os desenvolvedores e o Product Owner, e evita com que sejam entregues tarefas incompletas para o cliente. Cada time pode ter um critério diferente.
+
 Uma dica é utilizar o método de criar histórias para cada funcionalidade do sistema. Essas histórias devem ter um título e 3 itens: 
 
 * o porque é necessário;
@@ -49,7 +51,7 @@ Uma dica é utilizar o método de criar histórias para cada funcionalidade do s
 
 O modelo a seguir pode ser um exemplo:
 
-**[TITULO]**
+**[TÍTULO]**
 
 **Para que ...** [por que o pedido é importante]
 
@@ -58,5 +60,14 @@ O modelo a seguir pode ser um exemplo:
 **Quero que ...**[o pedido em si]
 
 
+## 2.2 Sprint
+Depois que os itens do Sprint Backlog foram decididos, é hora de começar a Sprint de fato. Nela temos um timebox, ou seja, um tempo pré-definido, que pode ser de até 1 mês, e deve ser seguido fielmente. Todas as tarefas que foram definidas na Sprint Backlog devem ser implementadas neste período e ao final de cada Sprint, deve ser entrege algo de valor para o cliente.
 
+### 2.2.1 Daily Scrum
+Durante toda a Sprint, acontece diariamente a Daily Scrum, que é uma reunião que geralmente todos ficam de pé e dura no máximo 15 minutos. Serve para alinhar todos do grupo, para que cada um saiba o que o outro está fazendo. Durante esse encontro, cada membro deve responder responder 3 perguntas:
+* O que você fez ontem?
+* O que vai fazer hoje?
+* Existe algum impedimento no caminho?
 
+O Daily Scrum não deve ser utilizado para resolver problemas, estes devem ser somente levantados, e fora da reunião podem ser resolvidos.
+Os impedimentos que surgirem na reunião devem ser tratados pelo Scrum Master o mais rápido possível.
