@@ -37,6 +37,9 @@ O Scrum funciona com um ciclo bem definido. A imagem a seguir apresenta este cic
 ![](https://i.imgur.com/o1CHjlo.png)
 
 ### 2.1. Sprint Planning
+
+![planning](https://i.imgur.com/Dc6tUff.jpg)
+
 Toda Sprint do Scrum começa com uma reunião, para entendermos os itens a serem feitos e planejar o que cabe no tempo da Sprint. Todos do time devem participar desta reunião. Para o Planning Meeting, o Product Owner já deve ter olhado as histórias prioritárias do projeto, quebrando em funcionalidades menores que ainda agregam algum valor para o cliente.
 
 A reunião começa com o P.O explicando o item de maior prioridade da aplicação. Então, os desenvolvedores tiram as dúvidas com o P.O, quebram a funcionlidade em sub-itens técnicos e discutem a dificuldade de implementação do item, para que consigam atribuir uma estimativa de esforço. Então os sub-itens são alocados dentro da Sprint. Isto se repete para os proximos itens prioritarios do Product backlog. Então os desevolvedores negociam com o P.O quais desses itens serão feitos na Sprint, definindo assim o Sprint Backlog.
@@ -64,6 +67,8 @@ O modelo a seguir pode ser um exemplo:
 Depois que os itens do Sprint Backlog foram decididos, é hora de começar a Sprint de fato. Nela temos um timebox, ou seja, um tempo pré-definido, que pode ser de até 1 mês, e deve ser seguido fielmente. Todas as tarefas que foram definidas na Sprint Backlog devem ser implementadas neste período e ao final de cada Sprint, deve ser entrege algo de valor para o cliente.
 
 ### 2.2.1 Daily Scrum
+![daily scrum](https://i.imgur.com/kkfLWK0.png)
+
 Durante toda a Sprint, acontece diariamente a Daily Scrum, que é uma reunião que geralmente todos ficam de pé e dura no máximo 15 minutos. Serve para alinhar todos do grupo, para que cada um saiba o que o outro está fazendo. Durante esse encontro, cada membro deve responder responder 3 perguntas:
 * O que você fez ontem?
 * O que vai fazer hoje?
@@ -71,3 +76,35 @@ Durante toda a Sprint, acontece diariamente a Daily Scrum, que é uma reunião q
 
 O Daily Scrum não deve ser utilizado para resolver problemas, estes devem ser somente levantados, e fora da reunião podem ser resolvidos.
 Os impedimentos que surgirem na reunião devem ser tratados pelo Scrum Master o mais rápido possível.
+
+É recomendado que a Daily Scrum ocorra sempre na mesma hora e no mesmo local, com todos os integrantes do grupo.
+
+
+## 2.3 Review Meeting
+![review-meeting](https://i.imgur.com/DvULtEc.jpg)
+
+
+Realizado após o término de uma Sprint, e é onde apresentamos tudo o que ficou pronto para o cliente. Além do Cliente, participam o Scrum Master, P.O, e equipe de desenvolvedores.
+
+A mecânica geralmente é bem simples. O usuário final testa cada uma das funcionalidades prontas e apresenta seu feedback, que pode ser variado.
+O cliente pode ter uma nova ideia ou até encontrar um bug. Caso isso aconteça, o Product Owner deve anotar tudo para posteriormente adicionar ao Product Backlog como novas histórias.
+
+Uma dica é ao inves de os desenvolvedores apresentarem as funcionalidades através de slides, deixar que o cliente ou o próprio usuário testarem as funcionalidades. Isto pode ajudar na verificação de bugs que não tinham sido encontrados ou uma possível melhora na interação do usuário com o sistema.
+
+## 2.4 Retrospective Meeting
+
+![retrospective](https://i.imgur.com/FgO2bcn.png)
+
+O último timebox de uma Sprint, é onde colocamos em prática o conceito de melhoria conínua. Aqui, o time todo se junta para descobrir como melhorar ainda mais o time. Existem alguns métodos para a realização deste encontro. 
+
+Um deles é toda a equipe levantar os pontos positivos e negativos da Sprint que passou e escrever cada ponto em um papel diferente.  
+
+Depois o time inteiro analisa os pontos negativos, o que aconteceu para causá-los, e o que pode ser feito para que isso não aconteça mais. 
+
+Os pontos positivos podem ser destacados, e caso seja necessário, definir lembretes para os pontos que ainda não são rotina entre o time.
+
+Também é comum discutir os itens da retrospectiva passada, validando se os problemas ainda estão ocorrendo ou se as ações tomadas tiveram efeito.
+
+Para terminar a reunião, o time cria uma lista de ações para realizar na próixma Sprint. Esta lista deve ficar visível para que todo o time se relembre delas. 
+
+Vale lembrar que uma ação deve ser uma atividade que os membros do time irão realizar para obter algum resultado. 
