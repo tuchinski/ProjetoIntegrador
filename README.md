@@ -108,3 +108,15 @@ Também é comum discutir os itens da retrospectiva passada, validando se os pro
 Para terminar a reunião, o time cria uma lista de ações para realizar na próixma Sprint. Esta lista deve ficar visível para que todo o time se relembre delas. 
 
 Vale lembrar que uma ação deve ser uma atividade que os membros do time irão realizar para obter algum resultado. 
+
+## 3. Dica de Como Utilizar o Scrum
+
+* **Determinar os cargos:** Escolher quem vai assumir o papel de Product Owner e Scrum Master.
+*  **Iniciando Contato:** Nesse momento deve ser feito uma reunião para iniciar o contato com o cliente e conhecer a demanda do produto. Essa reunião deve ser realizada pelo Product Owner, que deve anotar o maximo de informação com o cliente, mas não tem problema se houver alteração ao longo do processo.
+*  **Lista de Prioridades:** Após a conversa com o cliente, o Product Owner vai analisar e priorizar o product backlog de acordo com a necessidade do cliente.
+*  **Planejamento:** No Sprint Planning o Product Owner irá levar a lista contendo os itens de maior prioridade para a equipe de desenvolvimento. Juntamente com a equipe é indicado dividir as tarefas em partes menores. Nessa reunião pode ser utilizado pela equipe o Planning Poker para estimar o tempo de cada tarefa a ser realizada na Sprint. É recomendado também definir o responsavel por cada atividade.
+*  **Quadro de Visibilidade** Uma dica é usar o trello ou kanban para fazer um quadro de divisão contendo “A fazer”, “Fazendo” e “Feito”, assim poderá ter controle das atividades que estão sendo realizadas.
+*  **Realizando as tarefas:** Agora é a hora de colocar a mão na massa, mas lembrem-se de sempre passar para a equipe os seus avanços na Daily Scrum.
+*  **Reuniões:** Nessa etapa serão feita as reuniões(Sprint Meeting Review e o Sprint Retrospective), para a analise da Sprint finalizada e traçar novas metas para Sprint futura, não esqueça de rever os obstaculos e as melhorias realizadas.
+*  **Outro ciclo:** terminado o Sprint e feitas as reuniões finais, é feito um novo planejamento com Backlog referente às próximas atividades do Sprint. Todo o processo é feito visando uma melhoria contínua da produção.
+
