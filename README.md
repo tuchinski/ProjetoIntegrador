@@ -18,17 +18,15 @@ No Scrum existem alguns termos específico que precisam ser entendido antes de s
 
 * **Sprint Planning Meeting**: reunião que ocorre no início de cada Sprint. Serão descritas as funcionalidades de maior prioridade para toda a equipe. Nesta reunião é decidido o Sprint Backlog
 
-* **Sprint Retrospective**: Serve para inspecionar e criar um plano de ação, ou seja, identificar o que pode ser melhorado e que ações serão tomados para melhorar próxima Sprint. 
+* **Sprint Backlog**: Lista de atividades do projeto que devem ser realizada pela equipe, de acordo com os requisitos e prioridades do cliente.
 
-* **Sprint Review Meeting**: Reunião de revisão realizada no final de cada Sprint para avaliar o que foi feito e fazer modificações no Product Backlog se for necessário.
+* **Sprint Retrospective**: Serve para inspecionar e criar um plano de ação, ou seja, identificar o que pode ser melhorado e que ações serão tomados para melhorar próxima Sprint.
+
+* **Sprint Review Meeting**: Revisão do que foi feito, executada no final de cada Sprint. Nessa reunião haverá uma comparação entre os requisitos do cliente e o que já foi feito, se for necessário fazer modificação no Product Backlog.
 
 * **Daily Scrum**: reuniões diárias com a equipe, que ficam em pé para acompanhar as Sprints. São feitas discussões rápidas para ter noção do que está sendo feito para atingir as metas e descobrir se tem algum obstáculo.
 
 * **Product Owner ou P.O**: dono do produto, que será o principal intermediário entre a equipe e o cliente, responsável por gerenciar o Product Backlog.
-
-* **Sprint Backlog**: Lista de atividades do projeto que devem ser realizada pela equipe, de acordo com os requisitos e prioridades do cliente.
-
-* **Sprint Review Meeting**: Revisão do que foi feito, executada no final de cada Sprint. Nessa reunião haverá uma comparação entre os requisitos do cliente e o que já foi feito, se for necessário fazer modificação no Product Backlog.
 
 
 ## 2. Como funciona o Scrum
@@ -42,7 +40,7 @@ O Scrum funciona com um ciclo bem definido. A imagem a seguir apresenta este cic
 
 Toda Sprint do Scrum começa com uma reunião, para entendermos os itens a serem feitos e planejar o que cabe no tempo da Sprint. Todos do time devem participar desta reunião. Para o Planning Meeting, o Product Owner já deve ter olhado as histórias prioritárias do projeto, quebrando em funcionalidades menores que ainda agregam algum valor para o cliente.
 
-A reunião começa com o P.O explicando o item de maior prioridade da aplicação. Então, os desenvolvedores tiram as dúvidas com o P.O, quebram a funcionlidade em sub-itens técnicos e discutem a dificuldade de implementação do item, para que consigam atribuir uma estimativa de esforço. Então os sub-itens são alocados dentro da Sprint. Isto se repete para os proximos itens prioritarios do Product backlog. Então os desevolvedores negociam com o P.O quais desses itens serão feitos na Sprint, definindo assim o Sprint Backlog.
+A reunião começa com o P.O explicando o item de maior prioridade da aplicação. Então, os desenvolvedores tiram as dúvidas com o P.O, quebram a funcionalidade em sub-itens técnicos e discutem a dificuldade de implementação do item, para que consigam atribuir uma estimativa de esforço. Então os sub-itens são alocados dentro da Sprint. Isto se repete para os proximos itens prioritarios do Product backlog. Então os desenvolvedores negociam com o P.O quais desses itens serão feitos na Sprint, definindo assim o Sprint Backlog.
 
 Um outro ponto muito importante é definir um critério de Pronto. Isso deve ser um acordo entre os desenvolvedores e o Product Owner, e evita com que sejam entregues tarefas incompletas para o cliente. Cada time pode ter um critério diferente.
 
@@ -95,7 +93,7 @@ Uma dica é ao inves de os desenvolvedores apresentarem as funcionalidades atrav
 
 ![retrospective](https://i.imgur.com/FgO2bcn.png)
 
-O último timebox de uma Sprint, é onde colocamos em prática o conceito de melhoria conínua. Aqui, o time todo se junta para descobrir como melhorar ainda mais o time. Existem alguns métodos para a realização deste encontro. 
+O último timebox de uma Sprint, é onde colocamos em prática o conceito de melhoria contínua. Aqui, a equipe todo se junta para descobrir como melhorar ainda mais o time. Existem alguns métodos para a realização deste encontro. 
 
 Um deles é toda a equipe levantar os pontos positivos e negativos da Sprint que passou e escrever cada ponto em um papel diferente.  
 
@@ -105,18 +103,25 @@ Os pontos positivos podem ser destacados, e caso seja necessário, definir lembr
 
 Também é comum discutir os itens da retrospectiva passada, validando se os problemas ainda estão ocorrendo ou se as ações tomadas tiveram efeito.
 
-Para terminar a reunião, o time cria uma lista de ações para realizar na próixma Sprint. Esta lista deve ficar visível para que todo o time se relembre delas. 
+Para terminar a reunião, o time cria uma lista de ações para realizar na próxima Sprint. Esta lista deve ficar visível para que todo o time se relembre delas. 
 
 Vale lembrar que uma ação deve ser uma atividade que os membros do time irão realizar para obter algum resultado. 
 
 ## 3. Dica de Como Utilizar o Scrum
 
 * **Determinar os cargos:** Escolher quem vai assumir o papel de Product Owner e Scrum Master.
+
 *  **Iniciando Contato:** Nesse momento deve ser feito uma reunião para iniciar o contato com o cliente e conhecer a demanda do produto. Essa reunião deve ser realizada pelo Product Owner, que deve anotar o maximo de informação com o cliente, mas não tem problema se houver alteração ao longo do processo.
-*  **Lista de Prioridades:** Após a conversa com o cliente, o Product Owner vai analisar e priorizar o product backlog de acordo com a necessidade do cliente.
+
+*  **Lista de Prioridades:** Após a conversa com o cliente, o Product Owner vai analisar e priorizar o Product Backlog de acordo com a necessidade do cliente.
+
 *  **Planejamento:** No Sprint Planning o Product Owner irá levar a lista contendo os itens de maior prioridade para a equipe de desenvolvimento. Juntamente com a equipe é indicado dividir as tarefas em partes menores. Nessa reunião pode ser utilizado pela equipe o Planning Poker para estimar o tempo de cada tarefa a ser realizada na Sprint. É recomendado também definir o responsavel por cada atividade.
+
 *  **Quadro de Visibilidade** Uma dica é usar o trello ou kanban para fazer um quadro de divisão contendo “A fazer”, “Fazendo” e “Feito”, assim poderá ter controle das atividades que estão sendo realizadas.
+
 *  **Realizando as tarefas:** Agora é a hora de colocar a mão na massa, mas lembrem-se de sempre passar para a equipe os seus avanços na Daily Scrum.
+
 *  **Reuniões:** Nessa etapa serão feita as reuniões(Sprint Meeting Review e o Sprint Retrospective), para a analise da Sprint finalizada e traçar novas metas para Sprint futura, não esqueça de rever os obstaculos e as melhorias realizadas.
+
 *  **Outro ciclo:** terminado o Sprint e feitas as reuniões finais, é feito um novo planejamento com Backlog referente às próximas atividades do Sprint. Todo o processo é feito visando uma melhoria contínua da produção.
 
