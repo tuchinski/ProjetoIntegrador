@@ -1,9 +1,11 @@
-# Scrum
+# Scrum e Planning poker
 
 ## 1. Introdução
 A metodologia ágil é uma forma de acelerar as entregas durante o desenvolvimento de um projeto, fracionando o todo em entregas incrementais, trabalhando em partes auto-organizados e fazendo uso da Inteligência Coletiva.
 
 Scrum é um framework que se baseia nessa metodologia, usada para ajudar as equipes de projetos e controlar a evolução do produto de forma eficaz, atentando para a qualidade e prazo de entrega.
+
+Planning Poker é uma técnica que podemos estimar o esforço necessário para determinada quantidade de trabalho, tendo como base informações recolhidas do cliente, normalmente sendo, através de estórias de usuário.
 
 No Scrum existem alguns termos específico que precisam ser entendido antes de ser aplicado.
 
