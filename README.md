@@ -5,7 +5,7 @@ A metodologia ágil é uma forma de acelerar as entregas durante o desenvolvimen
 
 Scrum é um framework que se baseia nessa metodologia, usada para ajudar as equipes de projetos e controlar a evolução do produto de forma eficaz, atentando para a qualidade e prazo de entrega.
 
-Planning Poker é uma técnica que podemos estimar o esforço necessário para determinada quantidade de trabalho, tendo como base informações recolhidas do cliente, normalmente sendo, através de estórias de usuário.
+Planning Poker é uma técnica que podemos estimar o esforço necessário para determinada quantidade de trabalho, tendo como base informações recolhidas do cliente, normalmente sendo, através de histórias de usuário.
 
 No Scrum existem alguns termos específico que precisam ser entendido antes de ser aplicado.
 
@@ -113,11 +113,40 @@ Vale lembrar que uma ação deve ser uma atividade que os membros do time irão 
 
 ## 3. Planning Poker
 
-cada membro da equipe recebe um conjunto de cartas, com os valores de uma determinada sequência.
+Cada membro da equipe recebe um conjunto de cartas, com os valores de uma determinada sequência.
 
-Em seguida, a cada estória de usuário analisada, cada membro da equipe joga uma carta com a face para baixo sobre a mesa, nela estará contido o valor numérico de pontos que o mesmo considera justo para que a estória seja concluída.
+Em seguida, a cada história de usuário analisada, cada membro da equipe joga uma carta com a face para baixo sobre a mesa, nela estará contido o valor numérico de pontos que o mesmo considera justo para que a estória seja concluída.
 
 Caso haja grandes diferenças entre as cartas jogadas, os membros que jogaram as cartas de maior e menor valor explicarão suas razões e, então, com base em suas explicações, as cartas são jogadas novamente até que um consenso seja encontrado e uma estimativa seja definida.
+ 
+
+![](https://i.imgur.com/LdSi8a1.jpg)
+
+## 3.1 Colocando em Prática o Planning Poker
+
+* ### Passo 1
+
+    Alguém da equipe apresenta a historia de usuário para o grupo.
+
+* ### Passo 2
+
+    A equipe discute o critério de aceitação (definido pelo Product Owner) e tiram todas as duvidas sobre ela.
+
+* ### Passo 3
+
+    Cada membro, exceto o Product Owner, decide individualmente quantos Story Points e seleciona a carta do seu baralho, sem mostrar aos demais.
+
+* ### Passo 4
+
+    Quando todos os membros já estiverem com a carta escolhida em mãos, todos viram as cartas ao mesmo tempo.
+
+* ### Passo 5
+
+    Caso os valores sejam diferentes, cada um apresenta uma justificativa, geralmente do valor mais alto ao mais baixo.
+    
+* ### Passo 6
+
+    Depois o time vota novamente até que o grupo chegue a um acordo.
 
 ## 4. Dica de Como Utilizar o Scrum
 
