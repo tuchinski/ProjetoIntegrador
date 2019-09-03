@@ -111,7 +111,15 @@ Para terminar a reunião, o time cria uma lista de ações para realizar na pró
 
 Vale lembrar que uma ação deve ser uma atividade que os membros do time irão realizar para obter algum resultado. 
 
-## 3. Dica de Como Utilizar o Scrum
+## 3. Planning Poker
+
+cada membro da equipe recebe um conjunto de cartas, com os valores de uma determinada sequência.
+
+Em seguida, a cada estória de usuário analisada, cada membro da equipe joga uma carta com a face para baixo sobre a mesa, nela estará contido o valor numérico de pontos que o mesmo considera justo para que a estória seja concluída.
+
+Caso haja grandes diferenças entre as cartas jogadas, os membros que jogaram as cartas de maior e menor valor explicarão suas razões e, então, com base em suas explicações, as cartas são jogadas novamente até que um consenso seja encontrado e uma estimativa seja definida.
+
+## 4. Dica de Como Utilizar o Scrum
 
 * **Determinar os cargos:** Escolher quem vai assumir o papel de Product Owner e Scrum Master.
 *  **Iniciando Contato:** Nesse momento deve ser feito uma reunião para iniciar o contato com o cliente e conhecer a demanda do produto. Essa reunião deve ser realizada pelo Product Owner, que deve anotar o maximo de informação com o cliente, mas não tem problema se houver alteração ao longo do processo.
