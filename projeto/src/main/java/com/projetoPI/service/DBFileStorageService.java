@@ -22,7 +22,7 @@ public class DBFileStorageService {
 			throw new FileStorageException("Sorry! Extensão inválida do arquivo  " + fileName);
 		}
 
-		DBFile dbFile = new DBFile(fileName, file.getContentType(), file.getContents(), "teste");
+		DBFile dbFile = new DBFile(fileName, file.getContentType(), file.getContents());
 		return dbFileRepository.save(dbFile);
 	}
 	

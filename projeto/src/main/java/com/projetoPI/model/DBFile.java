@@ -1,66 +1,82 @@
 package com.projetoPI.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity
-@Table(name="files")
+@Entity(name = "Arquivo")
+@Table(name = "arquivo")
 public class DBFile {
 	@Id
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
-	private String id;
+	@Column(name = "file_id")
+	private String file_id;
 
-    private String fileName;
+	private String file_name;
 
-    private String fileType;
-    
-    private String fileCategory;
-    
-    @Lob
-    private byte[] data;
-    
-    public DBFile() {
-    	
-    }
+	private String file_type;
 
-	public DBFile(String fileName, String fileType, byte[] data, String fileCategory) {
+	@Lob
+	@NotNull
+	private byte[] data;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "categoria_id")
+	private Categoria fileCategoria;
+
+	public DBFile() {
 		super();
-		this.fileName = fileName;
-		this.fileType = fileType;
+	}
+
+	public DBFile(String fileName, String fileType, @NotNull byte[] data) {
+		super();
+		this.file_name = fileName;
+		this.file_type = fileType;
 		this.data = data;
-		this.fileCategory = fileCategory;
 	}
 
-	public String getId() {
-		return id;
+	public DBFile(String fileName, String fileType, @NotNull byte[] data, Categoria fileCategoria) {
+		super();
+		this.file_name = fileName;
+		this.file_type = fileType;
+		this.data = data;
+		this.fileCategoria = fileCategoria;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+
+	public String getFile_id() {
+		return file_id;
+	}
+
+	public void setFile_id(String file_id) {
+		this.file_id = file_id;
 	}
 
 	public String getFileName() {
-		return fileName;
+		return file_name;
 	}
 
 	public void setFileName(String fileName) {
-		this.fileName = fileName;
+		this.file_name = fileName;
 	}
 
 	public String getFileType() {
-		return fileType;
+		return file_type;
 	}
 
 	public void setFileType(String fileType) {
-		this.fileType = fileType;
+		this.file_type = fileType;
 	}
-	
-	public void setFileCategory(String fileCategory) {
-		this.fileCategory = fileCategory;
-	}
-    
 
 	public byte[] getData() {
 		return data;
@@ -70,9 +86,17 @@ public class DBFile {
 		this.data = data;
 	}
 
-	public String getFileCategory() {
-		return fileCategory;
+	public Categoria getFileCategoria() {
+		return fileCategoria;
 	}
 
+	public void setFileCategoria(Categoria fileCategoria) {
+		this.fileCategoria = fileCategoria;
+	}
 	
+	
+	
+
+	
+
 }
