@@ -6,34 +6,33 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	template="templateSistema.xhtml">
-	
+
 	<h:form>
 		<p:toolbar>
 			<f:facet name="left">
-				<h:outputText value="Nova Categoria" >
-				</h:outputText>			
+				<h:outputText value="Buscar Setor">
+				</h:outputText>
 			</f:facet>
 		</p:toolbar>
-		
-		<h:panelGrid columns="2">
-		
-			<p:outputLabel value="Codigo: " />
+		<h:panelGrid columns="4">
+			<p:outputLabel value="Descrição:" />
+			<p:inputText maxlength="50" size="30" />
 
-			<p:inputText size="20" readonly="true"  />
-			
-			<p:outputLabel value="Nome: " />
-			<p:inputText maxlength="50" size="10" value="#{criaCategoriaView.text}"/>		
-
-		
+			<p:commandButton value="Buscar" />
+			<p:commandButton value="Novo" />
 		</h:panelGrid>
-		
-		<h:panelGrid columns="2">
-			<p:commandButton value="Salvar" action="#{criaCategoriaView.salvaCategoria}" />
-			<p:commandButton value="Buscar"  />
 
-			
-		</h:panelGrid>	
-	
-	</h:form>	
+
+	</h:form>
+
+
+	<h:form>
+		<p:dataTable emptyMessage="Nenhum registro encontrado">
+			<p:column headerText="Código"></p:column>
+			<p:column headerText="Nome"></p:column>
+		</p:dataTable>
+
+	</h:form>
+
 
 </ui:decorate>

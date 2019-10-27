@@ -10,7 +10,7 @@
 	<h:form>
 		<p:toolbar>
 			<f:facet name="left">
-				<h:outputText value="Nova Categoria" >
+				<h:outputText value="Novo Setor" >
 				</h:outputText>			
 			</f:facet>
 		</p:toolbar>
@@ -18,19 +18,16 @@
 		<h:panelGrid columns="2">
 		
 			<p:outputLabel value="Codigo: " />
-
-			<p:inputText size="20" readonly="true"  />
+			<p:inputText size="20" readonly="true" />
 			
 			<p:outputLabel value="Nome: " />
-			<p:inputText maxlength="50" size="10" value="#{criaCategoriaView.text}"/>		
-
+			<p:inputText maxlength="50" size="10" />		
 		
 		</h:panelGrid>
 		
 		<h:panelGrid columns="2">
-			<p:commandButton value="Salvar" action="#{criaCategoriaView.salvaCategoria}" />
-			<p:commandButton value="Buscar"  />
-
+			<p:commandButton value="Salvar" />
+			<p:commandButton value="Buscar" action="buscarSetor.xhtml?faces-redirect=true" />
 			
 		</h:panelGrid>	
 	
