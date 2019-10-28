@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: jsf-primefaces-themes
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: ilzi
+Built-By: tuchinski
 Implementation-Vendor-Id: com.codenotfound
-Build-Jdk: 1.8.0_191
+Build-Jdk: 1.8.0_201
 Implementation-URL: https://codenotfound.com/jsf-primefaces-themes-exa
  mple.html
 Created-By: Maven Integration for Eclipse
