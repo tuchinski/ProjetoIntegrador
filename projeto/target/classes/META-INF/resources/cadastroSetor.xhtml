@@ -21,12 +21,12 @@
 			<p:inputText size="20" readonly="true" />
 			
 			<p:outputLabel value="Nome: " />
-			<p:inputText maxlength="50" size="10" />		
+			<p:inputText maxlength="50" size="10" value="#{criaSetorView.text}"/>		
 		
 		</h:panelGrid>
 		
 		<h:panelGrid columns="2">
-			<p:commandButton value="Salvar" />
+			<p:commandButton value="Salvar" action="#{criaSetorView.salvaSetor}"/>
 			<p:commandButton value="Buscar" action="buscarSetor.xhtml?faces-redirect=true" />
 			
 		</h:panelGrid>	

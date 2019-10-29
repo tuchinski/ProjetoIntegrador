@@ -31,7 +31,11 @@ projeto/interpolated*.xml
 projeto/lib/
 projeto/manifest.yml
 projeto/overridedb.*
-projeto/target/
+projeto/target/maven-status/*
+projeto/target/maven-status/test-classes/*
+projeto/target/classes/com/*
+projeto/target/META_INF/maven/*
+projeto/target/META_INF/MANIFEST.MF/*
 projeto/transaction-logs
 projeto/.flattened-pom.xml
 projeto/secrets.yml
