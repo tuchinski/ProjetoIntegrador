@@ -35,19 +35,8 @@ public class FileUploadView {
 	public void upload(FileUploadEvent event) {
         UploadedFile arq = event.getFile();
 		if(arq != null) {
-        	System.out.println("Entroooo!!!!!");
-        	String fileName = StringUtils.cleanPath(arq.getFileName());
-        	System.out.println(arq.getSize());
         	try {
-//        		FacesContext context = FacesContext.getCurrentInstance();
-//        		ServletContext servletContext = (ServletContext) context.getExternalContext().getContext();
-//        		dbFileStorageService.storeFile(this.file);
-        		
-//        		System.out.print(file.getFileName() + "hello");
-        		this.dbFile = new DBFile(fileName, arq.getContentType(), arq.getContents());
-        		System.out.println(this.dbFile.getFileName() + "123456");
-        		System.out.println(this.dbFile.getFile_id());
-        		System.out.println(dbFileStorageService.storeFile(arq));
+        		dbFileStorageService.storeFile(arq);
         		
         		FacesMessage message = new FacesMessage("Succesful", arq.getFileName() + " foi salvo!");
         		FacesContext.getCurrentInstance().addMessage(null, message);
@@ -60,11 +49,4 @@ public class FileUploadView {
         }
     }
 
-//	public void handleFileUpload(FileUploadEvent event) {
-//		UploadedFile arq = event.getFile();
-//		
-//		System.out.println(arq.getFileName());
-//		FacesMessage msg = new FacesMessage("Succesful", event.getFile().getFileName() + " is bla.");
-//		FacesContext.getCurrentInstance().addMessage(null, msg);
-//	}
 }
