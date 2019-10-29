@@ -7,7 +7,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	template="templateSistema.xhtml">
 	
-	<h:form>
+	<h:form id="frmCadCategoria">
 		<p:toolbar>
 			<f:facet name="left">
 				<h:outputText value="Nova Categoria" >
@@ -15,7 +15,7 @@
 			</f:facet>
 		</p:toolbar>
 		
-		<h:panelGrid columns="2">
+		<h:panelGrid id="pnlCadCategoria" columns="2">
 		
 			<p:outputLabel value="Codigo: " />
 
@@ -28,7 +28,10 @@
 		</h:panelGrid>
 		
 		<h:panelGrid columns="2">
-			<p:commandButton value="Salvar" action="#{criaCategoriaView.salvaCategoria}" />
+			<p:commandButton value="Salvar" 							
+							actionListener="#{criaCategoriaView.salvaCategoria}"
+							update=":msgGlobal :frmCadCategoria:pnlCadCategoria" />
+							
 			<p:commandButton value="Buscar"  />
 
 			

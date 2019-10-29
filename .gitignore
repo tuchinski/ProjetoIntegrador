@@ -9,7 +9,6 @@ projeto/.#*
 projeto/.*.md.html
 projeto/.DS_Store
 projeto/.classpath
-projeto/.projeto/factorypath
 projeto/.gradle
 projeto/.idea
 projeto/.metadata
@@ -31,11 +30,7 @@ projeto/interpolated*.xml
 projeto/lib/
 projeto/manifest.yml
 projeto/overridedb.*
-projeto/target/maven-status/*
-projeto/target/maven-status/test-classes/*
-projeto/target/classes/com/*
-projeto/target/META_INF/maven/*
-projeto/target/META_INF/MANIFEST.MF/*
+projeto/target/
 projeto/transaction-logs
 projeto/.flattened-pom.xml
 projeto/secrets.yml
