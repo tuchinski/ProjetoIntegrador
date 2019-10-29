@@ -12,6 +12,8 @@
 
 <h:body>
 
+	<p:growl id="msgGlobal" sticky="true" />
+
 	<!-- <p:menubar>
 		<p:menuitem value="Home" url="home.xhtml"></p:menuitem>
 		<p:menuitem value="Arquivo" url="documento.xhtml"></p:menuitem>
@@ -34,12 +36,12 @@
 
 					<p:submenu label="Gerenciar">
 						<p:submenu label="Categoria">
-							<p:menuitem value="Nova Categoria" outcome="cadastroCategoria.xhtml" />
+							<p:menuitem value="Novo" outcome="cadastroCategoria.xhtml" />
 							<p:menuitem value="Buscar" outcome="buscarCategoria.xhtml" />
 						</p:submenu>
 							
 						<p:submenu label="Setores">
-							<p:menuitem value="Novo Setor" outcome="cadastroSetor.xhtml" />
+							<p:menuitem value="Novo" outcome="cadastroSetor.xhtml" />
 							<p:menuitem value="Buscar" outcome="buscarSetor.xhtml" />
 						
 						</p:submenu>

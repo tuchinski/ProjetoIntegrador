@@ -15,22 +15,26 @@
 			</f:facet>
 		</p:toolbar>
 		
-		<h:panelGrid columns="4">
-			<p:outputLabel value="Descrição:" />
-			<p:inputText maxlength="50" size="30" />
-			
-			<p:commandButton value="Buscar" />
-			<p:commandButton value="Novo" action="cadastroCategoria.xhtml?faces-redirect=true" />
-		</h:panelGrid>
-
-
 	</h:form>
 
 
 	<h:form>
 		<p:dataTable emptyMessage="Nenhum registro encontrado">
+			
+			<f:facet name="footer">
+				<p:commandButton value="Novo" action="cadastroCategoria.xhtml?faces-redirect=true" />
+			</f:facet>
+			
 			<p:column headerText="Código"></p:column>
 			<p:column headerText="Nome"></p:column>
+			
+			<p:column headerText="Opções">
+				<p:commandButton value="Editar" action="cadastroCategoria.xhtml?faces-redirect=true" />
+				<p:commandButton value="Excluir" action="cadastroCategoria.xhtml?faces-redirect=true" />
+			
+			</p:column>
+			
+			
 		</p:dataTable>
 
 	</h:form>
