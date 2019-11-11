@@ -11,16 +11,16 @@
 	<h:form>
 		<p:toolbar>
 			<f:facet name="left">
-				<h:outputText value="Buscar Setor">
+				<h:outputText value="Buscar Departamento">
 				</h:outputText>
 			</f:facet>
 		</p:toolbar>
 		<h:panelGrid columns="4">
 			<p:outputLabel value="Descrição:" />
-			<p:inputText maxlength="50" size="30" value="#{buscaSetorView.nomeSetor}"/>
+			<p:inputText maxlength="50" size="30" /> <!-- value="#{buscaSetorView.nomeSetor}" -->
 
 			<p:commandButton value="Buscar" />
-			<p:commandButton value="Novo" action="cadastroSetor.xhtml?faces-redirect=true"/>
+			<p:commandButton value="Novo" action="cadastroDep.xhtml?faces-redirect=true"/>
 		</h:panelGrid>
 
 
@@ -28,12 +28,12 @@
 
 
 	<h:form>
-		<p:dataTable emptyMessage="Nenhum registro encontrado" var="setor" value="#{buscaSetorView.setores}">
+		<p:dataTable emptyMessage="Nenhum registro encontrado" var="setor" > <!-- value="#{buscaSetorView.setores} -->
 			<p:column headerText="Código"  >
-				 <h:outputText value="#{setor.setor_id}" />
+				 <!-- <h:outputText value="#{setor.setor_id}" /> -->
 			</p:column>
-			<p:column headerText="Nome" filterBy="#{setor.nomeSetor}">
-				 <h:outputText value="#{setor.nomeSetor}" />
+			<p:column headerText="Nome" > <!-- filterBy="#{setor.nomeSetor}" -->
+				<!--  <h:outputText value="#{setor.nomeSetor}" /> -->
 			</p:column>
 		</p:dataTable>
 
