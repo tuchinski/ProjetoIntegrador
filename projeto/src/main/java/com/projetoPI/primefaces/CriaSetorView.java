@@ -25,6 +25,18 @@ public class CriaSetorView {
 	
 	public void salvaSetor() {
 //		System.out.println(text);
-		this.service.storeSetor(text);
+		
+		
+		System.out.println(this.text);
+		if(this.text.isEmpty()) {
+			System.out.println("String vazia");
+		}else {
+			this.service.storeSetor(text);
+			FacesUtil.addMsgInfo("Setor Salvo com Sucesso");
+		}
+		this.setText("");
+		
+		
+		
 	}
 }
