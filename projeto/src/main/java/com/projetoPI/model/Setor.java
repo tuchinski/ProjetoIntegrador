@@ -6,8 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
+import javax.validation.constraints.NotNull;
 
 @Entity(name = "Setor")
 @Table(name = "setor")
@@ -18,6 +17,7 @@ public class Setor {
 	@Column(name = "setor_id")
 	private	long setor_id;
 	
+	@NotNull
 	private String nomeSetor;
 
 	public Setor() {
@@ -31,8 +31,13 @@ public class Setor {
 	}
 
 	public Setor(String nomeSetor) {
-		super();
-		this.nomeSetor = nomeSetor;
+		super();		
+		if(nomeSetor == null||nomeSetor.length() == 0) {
+			throw new IllegalArgumentException("O nome do setor não pode ser nulo ou vazio");
+		}else {
+			this.nomeSetor = nomeSetor;
+		}
+	
 	}
 
 	public long getSetor_id() {

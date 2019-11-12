@@ -7,30 +7,31 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	template="templateSistema.xhtml">
 
-	<h:form id="frmCadSetor">
+	<h:form id="frmCadDep">
 		<p:toolbar>
 			<f:facet name="left">
-				<h:outputText value="Novo Setor">
+				<h:outputText value="Novo Departamento">
 				</h:outputText>
 			</f:facet>
 		</p:toolbar>
 
-		<h:panelGrid columns="2" id="pnlCadSetor">
+		<h:panelGrid columns="2" id="pnlCadDep">
 
 			<p:outputLabel value="Codigo: " />
 			<p:inputText size="20" readonly="true" />
 
 			<p:outputLabel value="Nome: " />
-			<p:inputText maxlength="50" size="10" value="#{criaSetorView.text}" />
+			<p:inputText maxlength="50" size="10" value="#{criaDepartamentoView.text}" />
 
 		</h:panelGrid>
 
 		<h:panelGrid columns="2">
-			<p:commandButton value="Salvar" action="#{criaSetorView.salvaSetor}" 
-							update=":msgGlobal :frmCadSetor:pnlCadSetor"/>
+			<p:commandButton value="Salvar"
+							update=":msgGlobal :frmCadDep:pnlCadDep"
+							actionListener="#{criaDepartamentoView.salvaDepartamento}"/>
 							
 			<p:commandButton value="Buscar"
-				action="buscarSetor.xhtml?faces-redirect=true" />
+				action="buscarDep.xhtml?faces-redirect=true" />
 
 		</h:panelGrid>
 
