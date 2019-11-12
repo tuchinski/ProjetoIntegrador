@@ -19,16 +19,18 @@
 
 
 	<h:form>
-		<p:dataTable emptyMessage="Nenhum registro encontrado" var="Categoria" value="#{MostraCategoriaView.categorias}">
+		<p:dataTable emptyMessage="Nenhum registro encontrado" var="categoria" value="#{mostraCategoriaView.categorias}">
 			
 			<f:facet name="footer">
 				<p:commandButton value="Novo" action="cadastroCategoria.xhtml?faces-redirect=true" />
 			</f:facet>
 			
 			<p:column headerText="Código">
-				<h:outputText value="#{categorias.id}">
+				<h:outputText value="#{categoria.id}"/>
 			</p:column>
-			<p:column headerText="Nome"></p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{categoria.nomeCategoria}"/>
+			</p:column>
 			
 			<p:column headerText="Opções">
 				<p:commandButton value="Editar" action="cadastroCategoria.xhtml?faces-redirect=true" />
