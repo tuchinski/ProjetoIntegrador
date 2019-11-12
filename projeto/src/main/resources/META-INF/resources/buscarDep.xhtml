@@ -17,7 +17,7 @@
 		</p:toolbar>
 		<h:panelGrid columns="4">
 			<p:outputLabel value="Descrição:" />
-			<p:inputText maxlength="50" size="30" /> <!-- value="#{buscaSetorView.nomeSetor}" -->
+			<p:inputText maxlength="50" size="30" value="#{buscaDepartamentoView.nomeDepto}" />
 
 			<p:commandButton value="Buscar" />
 			<p:commandButton value="Novo" action="cadastroDep.xhtml?faces-redirect=true"/>
@@ -28,12 +28,12 @@
 
 
 	<h:form>
-		<p:dataTable emptyMessage="Nenhum registro encontrado" var="setor" > <!-- value="#{buscaSetorView.setores} -->
-			<p:column headerText="Código"  >
-				 <!-- <h:outputText value="#{setor.setor_id}" /> -->
-			</p:column>
-			<p:column headerText="Nome" > <!-- filterBy="#{setor.nomeSetor}" -->
-				<!--  <h:outputText value="#{setor.nomeSetor}" /> -->
+		<p:dataTable emptyMessage="Nenhum registro encontrado" var="departamento" value="#{buscaDepartamentoView.deptos}" > 
+			 <p:column headerText="Código" >
+				  <h:outputText value="#{departamento.departamento_id}" /> 
+			</p:column> 
+			<p:column headerText="Nome" filterBy="#{departamento.nome_departamento}"> 
+	 			 <h:outputText value="#{departamento.nome_departamento}" /> 
 			</p:column>
 		</p:dataTable>
 

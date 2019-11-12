@@ -10,7 +10,7 @@
 	<h:form id="frmCadDep">
 		<p:toolbar>
 			<f:facet name="left">
-				<h:outputText value="Nova Categoria">
+				<h:outputText value="Novo Departamento">
 				</h:outputText>
 			</f:facet>
 		</p:toolbar>
@@ -21,13 +21,14 @@
 			<p:inputText size="20" readonly="true" />
 
 			<p:outputLabel value="Nome: " />
-			<!-- <p:inputText maxlength="50" size="10" value="#{criaDepartamentoView.text}" /> -->
+			<p:inputText maxlength="50" size="10" value="#{criaDepartamentoView.text}" />
 
 		</h:panelGrid>
 
 		<h:panelGrid columns="2">
 			<p:commandButton value="Salvar"
-							update=":msgGlobal :frmCadDep:pnlCadDep"/>
+							update=":msgGlobal :frmCadDep:pnlCadDep"
+							actionListener="#{criaDepartamentoView.salvaDepartamento}"/>
 							
 			<p:commandButton value="Buscar"
 				action="buscarDep.xhtml?faces-redirect=true" />
