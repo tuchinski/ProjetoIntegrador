@@ -20,26 +20,32 @@ public class Departamento {
 	@NotNull
 	private String nome_departamento;
 
+	public Departamento() {
+		super();
+	}
+
 	public Departamento(@NotNull String depto) {
 		super();
 		this.nome_departamento = depto;
 	}
 
-	public String getNomeSetor() {
-		return nome_departamento;
-	}
-
-	public void setNomeSetor(String nomeSetor) {
-		this.nome_departamento = nomeSetor; 
-	}
-
-	public long getSetor_id() {
+	public long getDepartamento_id() {
 		return departamento_id;
 	}
 
-	public void setSetor_id(long setor_id) {
-		this.departamento_id = setor_id;
-	}	
+	public void setDepartamento_id(long departamento_id) {
+		this.departamento_id = departamento_id;
+	}
+
+	public String getNome_departamento() {
+		return nome_departamento;
+	}
+
+	public void setNome_departamento(String nome_departamento) {
+		this.nome_departamento = nome_departamento;
+	}
+
+	
 	
 }
 

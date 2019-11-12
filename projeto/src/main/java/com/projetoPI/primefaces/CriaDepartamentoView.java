@@ -30,7 +30,7 @@ public class CriaDepartamentoView {
 			System.out.println("String vazia");
 		}else {
 			departamentoStorageService.storeDepartamento(text);
-			FacesUtil.addMsgInfo("Categoria Salvo com Sucesso");
+			FacesUtil.addMsgInfo("Departamento Salvo com Sucesso!");
 		}
 		this.setText("");
 	}
