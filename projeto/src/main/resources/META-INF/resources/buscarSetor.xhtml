@@ -32,8 +32,15 @@
 			<p:column headerText="Código"  >
 				 <h:outputText value="#{setor.setor_id}" />
 			</p:column>
+			
 			<p:column headerText="Nome" filterBy="#{setor.nomeSetor}">
 				 <h:outputText value="#{setor.nomeSetor}" />
+			</p:column>
+			
+			<p:column headerText="Opções">
+				<p:commandButton value="Editar" action="cadastroSetor.xhtml?faces-redirect=true" />
+				<p:commandButton value="Excluir" action="cadastroSetor.xhtml?faces-redirect=true" />				
+			
 			</p:column>
 		</p:dataTable>
 
