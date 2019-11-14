@@ -1,6 +1,8 @@
 package com.projetoPI.primefaces;
 
 
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
@@ -9,10 +11,11 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.util.StringUtils;
 
 import com.projetoPI.exeption.FileStorageException;
+import com.projetoPI.model.Categoria;
 import com.projetoPI.model.DBFile;
+import com.projetoPI.service.CategoriaStorageService;
 import com.projetoPI.service.DBFileStorageService;
 
 @Named
@@ -23,6 +26,21 @@ public class FileUploadView {
 	public DBFile dbFile;
 	@Autowired
 	private DBFileStorageService dbFileStorageService;
+	
+	@Autowired
+	private CategoriaStorageService categoriaStorageService;
+	
+	public Categoria categoria; 
+	
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	private List<Categoria> categorias;
 
 	public UploadedFile getFile() {
 		return file;
@@ -48,5 +66,15 @@ public class FileUploadView {
         	
         }
     }
+
+	public List<Categoria> getCategorias() {
+		return categoriaStorageService.getAllCategorias();	
+		
+
+	}
+
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
+	}
 
 }
