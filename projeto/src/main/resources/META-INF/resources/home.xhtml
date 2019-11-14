@@ -7,6 +7,54 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	template="templateSistema.xhtml">
 	
+	<h2>Documentos</h2>
+
+<p:dataTable var="arquivo" value="#{homeView.arquivos}" selectionMode="single" rowKey="#{arquivo.file_id}" style="width:75%">
+
+		 <p:ajax event="rowSelect" listener="#{homeView.onRowSelect}" oncomplete="PF('dlg1').show()" update=":form" />
+
+		<p:column headerText="Nome Arquivo">
+			<h:outputText value="#{arquivo.file_name}" />
+		</p:column>
+		
+		<p:column headerText="Categoria">
+			<h:outputText value="#{arquivo.fileCategoria}" />
+		</p:column>
+
+	</p:dataTable>
 	
+	<p:dialog header="Dialog" widgetVar="dlg1" modal="false">
+		<h:form id="form">
+
+			<p:messages id="msgs" />
+
+			<h:panelGrid columns="1" cellpadding="5">
+
+				<p:media value="#{homeView.streamedContent}" player="pdf" width="600px" height="300px">
+					<f:param name="id" value="#{homeView.generateRandomIdForNotCaching()}" /> 
+				</p:media>
+
+				<p:commandButton value="download" ajax="false" onclick="PrimeFaces.monitorDownload(startOffer, stopOffer);">
+					<p:fileDownload value="#{homeView.streamedContent}" />
+				</p:commandButton>
+
+			</h:panelGrid>
+
+		</h:form>
+	</p:dialog> 
+	
+		<h:form>
+		<p:remoteCommand name="refreshStreamOffer" actionListener="#{formView.refreshStream()}" />
+	</h:form>
+	
+		<script type="text/javascript">
+		function startOffer() {
+			refreshStreamOffer();
+		}
+
+		function stopOffer() {
+			refreshStreamOffer();
+		}
+	</script>
 
 </ui:decorate>
