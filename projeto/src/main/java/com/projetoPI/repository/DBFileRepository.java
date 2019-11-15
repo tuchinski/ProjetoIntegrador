@@ -9,5 +9,4 @@ import com.projetoPI.model.DBFile;
 
 @Repository
 public interface DBFileRepository extends JpaRepository<DBFile, String>{
-	
 }
