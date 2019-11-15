@@ -4,6 +4,7 @@ package com.projetoPI.primefaces;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -30,11 +31,11 @@ public class HomeView {
 	private DBFileStorageService dbFileStorageService;
 	
 	private StreamedContent streamedContent;
-	
+
 	public void onRowSelect(SelectEvent event) {		
 		System.out.println("HOME VIEW - ONROWSELECT!!!!!!!!");
-		this.arquivoSelecionado = ((DBFile) event.getObject());
-		System.out.println(arquivoSelecionado);
+		this.arquivoSelecionado = ((DBFile) event.getObject());	
+		System.out.println(arquivoSelecionado.getFile_name());
 		
 		createStream(arquivoSelecionado);
 
@@ -44,15 +45,13 @@ public class HomeView {
 		InputStream arrayDadosArquivo = new ByteArrayInputStream(arquivoSelecionado.getData());
 		this.streamedContent = new DefaultStreamedContent(arrayDadosArquivo, arquivoSelecionado.getFile_type(), arquivoSelecionado.getFile_name());
 		return this.streamedContent;
-		
 	}	
 	
 	public String generateRandomIdForNotCaching() {
 		return java.util.UUID.randomUUID().toString();
 	}
 	
-	
-	
+		
 /////getters e setters//////////////////////////////
 
 	public DBFile getNomeArquivoSelecionado() {
@@ -78,6 +77,7 @@ public class HomeView {
 	public void setStreamedContent(StreamedContent streamedContent) {
 		this.streamedContent = streamedContent;
 	}
+
 	
 /////////////////////////////////////////////////////////////////////////////////
 }

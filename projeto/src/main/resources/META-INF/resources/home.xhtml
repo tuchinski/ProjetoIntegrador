@@ -6,29 +6,33 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	template="templateSistema.xhtml">
-	
+
 	<h2>Documentos</h2>
 
-<p:dataTable var="arquivo" value="#{homeView.arquivos}" selectionMode="single" rowKey="#{arquivo.file_id}" style="width:75%">
+	<p:dataTable var="arquivo" value="#{homeView.arquivos}"
+		selectionMode="single" rowKey="#{arquivo.file_id}" style="width:75%">
 
-		 <p:ajax event="rowSelect" listener="#{homeView.onRowSelect}" oncomplete="PF('dlg1').show()" update=":form" />
+		<p:ajax event="rowSelect" listener="#{homeView.onRowSelect}"
+			oncomplete="PF('dlg1').show()" update=":form" />
 
 		<p:column headerText="Nome Arquivo">
 			<h:outputText value="#{arquivo.file_name}" />
 		</p:column>
-		
+
 		<p:column headerText="Categoria">
-			<h:outputText value="#{arquivo.fileCategoria}" />
+			<h:outputText value="#{arquivo.fileCategoria.nomeCategoria}" />
 		</p:column>
 
 	</p:dataTable>
 	
-	<p:dialog header="Dialog" widgetVar="dlg1" modal="false">
+	<!-- <p:media value="#{fileCategoria.data}" width="50%" height="300px" player="pdf" id="abrePDF" rendered="true" cache="false" ></p:media> -->
+
+	<p:dialog header="Visualizar" widgetVar="dlg1" modal="false">
 		<h:form id="form">
 
 			<p:messages id="msgs" />
 
-			<h:panelGrid columns="1" cellpadding="5">
+			 <h:panelGrid columns="1" cellpadding="5">
 
 				<p:media value="#{homeView.streamedContent}" player="pdf" width="600px" height="300px">
 					<f:param name="id" value="#{homeView.generateRandomIdForNotCaching()}" /> 
@@ -38,16 +42,17 @@
 					<p:fileDownload value="#{homeView.streamedContent}" />
 				</p:commandButton>
 
-			</h:panelGrid>
+			</h:panelGrid> 
 
 		</h:form>
-	</p:dialog> 
-	
-		<h:form>
-		<p:remoteCommand name="refreshStreamOffer" actionListener="#{formView.refreshStream()}" />
+	</p:dialog>
+
+	<h:form>
+		<p:remoteCommand name="refreshStreamOffer"
+			actionListener="#{formView.refreshStream()}" />
 	</h:form>
-	
-		<script type="text/javascript">
+
+	<script type="text/javascript">
 		function startOffer() {
 			refreshStreamOffer();
 		}
