@@ -15,26 +15,24 @@
 				</h:outputText>
 			</f:facet>
 		</p:toolbar>
-		
-			
+	</h:form>	
+	<h:form id="catGO">		
 		<p:panelGrid columns="2">
-		
-			<p:outputLabel value="Categoria:"/>
-			<p:selectOneMenu value="#{fileUploadView.categoria}" >			
-				<f:selectItem itemValue="" itemLabel="Selecionar Categoria" />
-				<f:selectItems value="#{fileUploadView.categorias}" var="categoria" itemLabel="#{categoria.nomeCategoria}"
-								itemValue="#{categoria}" />
-			</p:selectOneMenu>
-			
+
+				<p:outputLabel value="Categoria:"/>
+				<p:selectOneMenu id="category" converter="#{categoriaConverter}">
+					<f:selectItems value="#{fileUploadView.categorias}" var="c" itemLabel="#{c.nomeCategoria}" />
+				</p:selectOneMenu>
+
+
 		</p:panelGrid>
 	
 			
 			<p:fileUpload fileUploadListener="#{fileUploadView.upload}"
-				mode="advanced" value="#{fileUploadView.file}"
-				dragDropSupport="false" update="messages" ajax="false" />
+				mode="advanced" dragDropSupport="true" multiple="true" update="messages" />
 
 			<p:growl id="messages" showDetail="true" />
-		
+	
 	</h:form>
 
 </ui:decorate>
