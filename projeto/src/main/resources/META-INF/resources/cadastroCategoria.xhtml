@@ -27,12 +27,15 @@
 		
 		</h:panelGrid>
 		
-		<h:panelGrid columns="2">
+		<h:panelGrid columns="4">
 			<p:commandButton value="Salvar" 							
 							actionListener="#{criaCategoriaView.salvaCategoria}"
 							update=":msgGlobal :frmCadCategoria:pnlCadCategoria" />
 							
 			<p:commandButton value="Buscar"  />
+			
+			<p:commandButton value="Editar"  />
+			<p:commandButton value="excluir"  />
 
 			
 		</h:panelGrid>	
