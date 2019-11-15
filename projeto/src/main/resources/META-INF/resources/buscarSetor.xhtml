@@ -8,6 +8,16 @@
 	template="templateSistema.xhtml">
 
 
+
+	<p:dialog header="Editar Setor" id="dialog-modal-editarSetor"
+		widgetVar="dialog-modal-editarSetor" modal="false" height="400px"
+		width="550px">
+		
+		<ui:include src="editarSetor.xhtml"/>		
+
+	</p:dialog>
+
+
 	<h:form>
 		<p:toolbar>
 			<f:facet name="left">
@@ -15,33 +25,60 @@
 				</h:outputText>
 			</f:facet>
 		</p:toolbar>
-		<h:panelGrid columns="4">
-			<p:outputLabel value="Descrição:" />
-			<p:inputText maxlength="50" size="30" value="#{buscaSetorView.nomeSetor}"/>
-
-			<p:commandButton value="Buscar" />
-			<p:commandButton value="Novo" action="cadastroSetor.xhtml?faces-redirect=true"/>
-		</h:panelGrid>
-
 
 	</h:form>
 
 
 	<h:form>
-		<p:dataTable emptyMessage="Nenhum registro encontrado" var="setor" value="#{buscaSetorView.setores}">
-			<p:column headerText="Código"  >
-				 <h:outputText value="#{setor.setor_id}" />
+		<p:dataTable emptyMessage="Nenhum registro encontrado" var="setor"
+			value="#{buscaSetorView.setores}" editable="true" rows="8"
+			paginator="true">
+
+			<f:facet name="footer">
+				<p:commandButton value="Novo" action="cadastroSetor.xhtml" />
+			</f:facet>
+
+			<p:ajax event="rowEdit" listener="#{buscaSetorView.editarLinhaSet}" />
+
+			<p:column headerText="Código">
+				<h:outputText value="#{setor.setor_id}" />
 			</p:column>
-			
+
 			<p:column headerText="Nome" filterBy="#{setor.nomeSetor}">
-				 <h:outputText value="#{setor.nomeSetor}" />
+
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{setor.nomeSetor}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{setor.nomeSetor}" />
+					</f:facet>
+				</p:cellEditor>
+
+				<!-- <h:outputText value="#{setor.nomeSetor}" /> -->
+
 			</p:column>
+
+			<p:column style="width:35px">
+				<!-- <p:rowEditor /> -->
+
+				<p:commandButton icon="ui-icon-pencil" title="Editar Registro"
+					ajax="true"
+					actionListener="#{buscaSetorView.editar(setor)}"
+					oncomplete="PF('dialog-modal-editarSetor').show();"
+					update="dialog-modal-editarSetor" />
+					
+			</p:column> 	<!-- actionListener="#{consultarPessoaController.Editar(pessoa)}" -->
 			
-			<p:column headerText="Opções">
-				<p:commandButton value="Editar" action="cadastroSetor.xhtml?faces-redirect=true" />
-				<p:commandButton value="Excluir" action="cadastroSetor.xhtml?faces-redirect=true" />				
-			
+		
+
+			<p:column style="width:35px">
+
+				<p:commandButton icon="ui-icon-trash" title="Excluir Registro" />
+
+
 			</p:column>
+
 		</p:dataTable>
 
 	</h:form>
