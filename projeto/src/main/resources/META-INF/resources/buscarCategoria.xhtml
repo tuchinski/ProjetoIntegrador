@@ -10,36 +10,60 @@
 	<h:form>
 		<p:toolbar>
 			<f:facet name="left">
-				<h:outputText value="Buscar Categoria" >
-				</h:outputText>			
+				<h:outputText value="Buscar Categoria">
+				</h:outputText>
 			</f:facet>
 		</p:toolbar>
-		
+
 	</h:form>
 
 
 	<h:form>
-		<p:dataTable emptyMessage="Nenhum registro encontrado" var="categoria" value="#{mostraCategoriaView.categorias}">
-			
+		<p:dataTable emptyMessage="Nenhum registro encontrado" var="categoria"
+			value="#{mostraCategoriaView.categorias}" editable="true" rows="8"
+			paginator="true">
+
 			<f:facet name="footer">
-				<p:commandButton value="Novo" action="cadastroCategoria.xhtml?faces-redirect=true" />
+				<p:commandButton value="Novo" action="cadastroCategoria.xhtml" />
 			</f:facet>
-			
-			<p:column headerText="Código">
-				<h:outputText value="#{categoria.id}"/>
+
+			<p:ajax event="rowEdit"
+				listener="#{mostraCategoriaView.editarLinhaCat}" />
+
+			<!-- <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":form:msgs" /> -->
+
+			<p:column headerText="Codigo">
+
+
+				<h:outputText value="#{categoria.id}" />
+
 			</p:column>
+
 			<p:column headerText="Nome">
-				<h:outputText value="#{categoria.nomeCategoria}"/>
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{categoria.nomeCategoria}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{categoria.nomeCategoria}" />
+					</f:facet>
+				</p:cellEditor>
 			</p:column>
-			
-			<p:column headerText="Opções">
-				<p:commandButton value="Editar" action="cadastroCategoria.xhtml?faces-redirect=true" />
-				<p:commandButton value="Excluir" action="cadastroCategoria.xhtml?faces-redirect=true" />				
-			
+
+			<p:column style="width:35px">
+				<p:rowEditor />
+				<!-- <p:commandButton icon="ui-icon-pencil" title="Editar Registro" /> -->
+
+
 			</p:column>
-			
-			
-			
+
+			<p:column style="width:35px">
+
+				<p:commandButton icon="ui-icon-trash" title="Excluir Registro" />
+
+
+			</p:column>
+
 		</p:dataTable>
 
 	</h:form>

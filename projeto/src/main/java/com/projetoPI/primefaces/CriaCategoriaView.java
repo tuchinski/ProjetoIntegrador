@@ -13,34 +13,39 @@ import com.projetoPI.service.CategoriaStorageService;
 @ViewScoped
 
 public class CriaCategoriaView {
-	
-	private String text ;
-	
+
+	private String text;
+
 	@Autowired
 	private CategoriaStorageService categoriaStorageService;
-	
-	
+
 	public String getText() {
 		return text;
 	}
-
-
 
 	public void setText(String text) {
 		this.text = text;
 	}
 
-
-
 	public void salvaCategoria() {
 		System.out.println(this.text);
-		if(this.text.isEmpty()) {
+		if (this.text.isEmpty()) {
 			System.out.println("String vazia");
-		}else {
+		} else {
 			categoriaStorageService.storeCategoria(text);
 			FacesUtil.addMsgInfo("Categoria Salvo com Sucesso");
 		}
 		this.setText("");
 	}
 	
+//	public void carregarCategoria() {
+//		try {
+//			String valor = FacesUtil.getParam("codCategoria");
+//
+//		} catch (RuntimeException ex) {
+//			FacesUtil.addMsgError("Categoria Salvo com Sucesso: " + ex.getMessage());
+//
+//		}
+//	}
+	 
 }
