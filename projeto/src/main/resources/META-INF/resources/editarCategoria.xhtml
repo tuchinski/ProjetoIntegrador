@@ -17,7 +17,8 @@
 		<p:inputText maxlength="50" size="20" value="#{mostraCategoriaView.categoriaEdit.nomeCategoria}" />
 
 		<p:commandButton value="Alterar" id="commandButton-alterar"
-			icon="ui-icon-gear" />
+			icon="ui-icon-gear" oncomplete="PF('dialog-modal-editarCategoria').hide();"
+			update="formBuscaCategoria" actionListener="#{mostraCategoriaView.editaCategoria}"/>
 
 	</h:panelGrid>
 

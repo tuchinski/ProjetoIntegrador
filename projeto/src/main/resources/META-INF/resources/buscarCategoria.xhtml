@@ -29,7 +29,7 @@
 	</h:form>
 
 
-	<h:form>
+	<h:form id="formBuscaCategoria">
 		<p:dataTable emptyMessage="Nenhum registro encontrado" var="categoria"
 			value="#{mostraCategoriaView.categorias}" editable="true" rows="8"
 			paginator="true">
@@ -50,7 +50,7 @@
 
 			</p:column>
 
-			<p:column headerText="Nome">
+			<p:column headerText="Nome" filterBy="#{categoria.nomeCategoria}">
 
 				<p:cellEditor>
 					<f:facet name="output">
@@ -70,7 +70,7 @@
 				<p:column style="width:35px">
 				
 					<p:commandButton icon="ui-icon-pencil" title="Editar Registro"
-						ajax="true" actionListener="#{mostraCategoriaView.editarCat(categoria)}"
+						ajax="true" actionListener="#{mostraCategoriaView.chamaTelaCategoria(categoria)}"
 						oncomplete="PF('dialog-modal-editarCategoria').show();"
 						update="dialog-modal-editarCategoria" />
 
@@ -82,12 +82,20 @@
 			<p:column style="width:35px">
 
 
-				<p:commandButton icon="ui-icon-trash" title="Excluir Registro" />
-
+				<p:commandButton icon="ui-icon-trash" title="Excluir Registro" update="formBuscaCategoria" 
+				actionListener="#{mostraCategoriaView.removeCategoria(categoria)}" >
+				
+					<p:confirm header="ATENÇÃO" message="Todos os documentos relacionados a categoria serão removidos!!" icon="ui-icon-info" />
+				</p:commandButton>
 
 			</p:column>
 
 		</p:dataTable>
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<p:commandButton value="Confirmar" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-closethick" />
+				</p:confirmDialog>
+
 
 	</h:form>
 
