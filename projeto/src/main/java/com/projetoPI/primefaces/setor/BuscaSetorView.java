@@ -1,4 +1,4 @@
-package com.projetoPI.primefaces;
+package com.projetoPI.primefaces.setor;
 
 import java.util.List;
 

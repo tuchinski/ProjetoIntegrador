@@ -1,10 +1,11 @@
-package com.projetoPI.primefaces;
+package com.projetoPI.primefaces.categoria;
 
 import javax.annotation.ManagedBean;
 import javax.faces.view.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.projetoPI.primefaces.FacesUtil;
 import com.projetoPI.service.CategoriaStorageService;
 
 //@Named

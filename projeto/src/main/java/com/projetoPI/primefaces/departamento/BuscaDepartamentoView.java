@@ -1,4 +1,4 @@
-package com.projetoPI.primefaces;
+package com.projetoPI.primefaces.departamento;
 
 import java.util.List;
 

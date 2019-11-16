@@ -1,10 +1,11 @@
-package com.projetoPI.primefaces;
+package com.projetoPI.primefaces.setor;
 
 import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
+import com.projetoPI.primefaces.FacesUtil;
 import com.projetoPI.service.SetorStorageService;
 
 @Named
