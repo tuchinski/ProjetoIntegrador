@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
 import com.projetoPI.model.Categoria;
+import com.projetoPI.model.DBFile;
 import com.projetoPI.model.Setor;
 import com.projetoPI.service.CategoriaStorageService;
 
@@ -52,13 +53,19 @@ public class MostraCategoriaView {
 		this.categorias = categorias;
 	}
 
-	public void editarLinhaCat(RowEditEvent event) {
-		FacesMessage msg = new FacesMessage("Editar Categoria");
-		FacesContext.getCurrentInstance().addMessage(null, msg);
-	}
-	
-	public void editarCat(Categoria c) {
+	public void chamaTelaCategoria(Categoria c) {
 		System.out.println(c.getNomeCategoria());
 		this.categoriaEdit = c;
 	}
+	
+	public void editaCategoria() {
+		System.out.println(this.categoriaEdit.getNomeCategoria());
+		service.editaCategoria(this.categoriaEdit);
+	}
+	
+	public void removeCategoria(Categoria removeCategoria) {
+			service.removeCategoria(removeCategoria);
+	}
+	
+	
 }
