@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
 import com.projetoPI.model.Categoria;
+import com.projetoPI.model.Setor;
 import com.projetoPI.service.CategoriaStorageService;
 
 @Named
@@ -18,10 +19,22 @@ import com.projetoPI.service.CategoriaStorageService;
 public class MostraCategoriaView {
 	private String nomeCategoria;
 	
+	private Categoria categoriaEdit;
+
 	private List<Categoria> categorias;
 	
 	@Autowired
 	private CategoriaStorageService service;
+	
+	
+
+	public Categoria getCategoriaEdit() {
+		return categoriaEdit;
+	}
+
+	public void setCategoriaEdit(Categoria categoriaEdit) {
+		this.categoriaEdit = categoriaEdit;
+	}
 
 	public String getNomeSetor() {
 		return nomeCategoria;
@@ -42,5 +55,10 @@ public class MostraCategoriaView {
 	public void editarLinhaCat(RowEditEvent event) {
 		FacesMessage msg = new FacesMessage("Editar Categoria");
 		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+	
+	public void editarCat(Categoria c) {
+		System.out.println(c.getNomeCategoria());
+		this.categoriaEdit = c;
 	}
 }
