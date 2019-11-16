@@ -8,7 +8,7 @@
 
 
 <h:form>
-	<h:panelGrid columns="2" id="pnlCadSetor">
+	<h:panelGrid columns="2" id="pnlCadSetor" >
 
 		<p:outputLabel value="Codigo: "/>
 		<p:inputText size="20" readonly="true" value="#{buscaSetorView.setorEdit.setor_id}" />
@@ -16,8 +16,8 @@
 		<p:outputLabel value="Nome: " />
 		<p:inputText maxlength="50" size="20" value="#{buscaSetorView.setorEdit.nomeSetor}" />
 
-		<p:commandButton value="Alterar" id="commandButton-alterar"
-			icon="ui-icon-gear" />
+		<p:commandButton value="Alterar" id="commandButton-alterar" oncomplete="PF('dialog-modal-editarSetor').hide();"
+			icon="ui-icon-gear" update="formBuscaSetor" actionListener="#{buscaSetorView.editaSetor}"/>
 
 	</h:panelGrid>
 

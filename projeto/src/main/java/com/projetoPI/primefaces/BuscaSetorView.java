@@ -31,7 +31,7 @@ public class BuscaSetorView {
 	private List<Setor> setores;
 	
 	@Autowired
-	private SetorStorageService service;
+	private SetorStorageService setorStorageService;
 
 	public String getNomeSetor() {
 		return nomeSetor;
@@ -42,7 +42,7 @@ public class BuscaSetorView {
 	}
 
 	public List<Setor> getSetores() {
-		return service.getAllSetores();
+		return setorStorageService.getAllSetores();
 	}
 
 	public void setSetores(List<Setor> setores) {
@@ -54,9 +54,20 @@ public class BuscaSetorView {
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 	
-	public void editar(Setor s) {
+	public void chamaTelaEditar(Setor s) {
 		System.out.println(s.getNomeSetor());
 		this.setorEdit = s;
+	}
+	
+	public void editaSetor() {
+		System.out.println(this.setorEdit.getNomeSetor());
+		setorStorageService.editSetor(this.setorEdit);
+	}
+	
+
+	public void deleteSetor(Setor setorDeleted) {
+		System.out.println(setorDeleted.getNomeSetor());
+		setorStorageService.deleteSetor(setorDeleted);
 	}
 	
 	

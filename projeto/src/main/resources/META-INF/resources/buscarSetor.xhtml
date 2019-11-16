@@ -11,9 +11,9 @@
 
 	<p:dialog header="Editar Setor" id="dialog-modal-editarSetor"
 		widgetVar="dialog-modal-editarSetor" modal="false" height="400px"
-		width="550px">
-		
-		<ui:include src="editarSetor.xhtml"/>		
+		width="550px" resizable="false">
+
+		<ui:include src="editarSetor.xhtml" />
 
 	</p:dialog>
 
@@ -29,16 +29,14 @@
 	</h:form>
 
 
-	<h:form>
+	<h:form id="formBuscaSetor">
 		<p:dataTable emptyMessage="Nenhum registro encontrado" var="setor"
-			value="#{buscaSetorView.setores}" editable="true" rows="8"
+			value="#{buscaSetorView.setores}" editable="true" rows="8" 
 			paginator="true">
 
 			<f:facet name="footer">
 				<p:commandButton value="Novo" action="cadastroSetor.xhtml" />
 			</f:facet>
-
-			<p:ajax event="rowEdit" listener="#{buscaSetorView.editarLinhaSet}" />
 
 			<p:column headerText="Código">
 				<h:outputText value="#{setor.setor_id}" />
@@ -64,23 +62,33 @@
 
 				<p:commandButton icon="ui-icon-pencil" title="Editar Registro"
 					ajax="true"
-					actionListener="#{buscaSetorView.editar(setor)}"
+					actionListener="#{buscaSetorView.chamaTelaEditar(setor)}"
 					oncomplete="PF('dialog-modal-editarSetor').show();"
 					update="dialog-modal-editarSetor" />
-					
-			</p:column> 	<!-- actionListener="#{consultarPessoaController.Editar(pessoa)}" -->
-			
-		
+
+			</p:column>
+			<!-- actionListener="#{consultarPessoaController.Editar(pessoa)}" -->
+
+
 
 			<p:column style="width:35px">
 
-				<p:commandButton icon="ui-icon-trash" title="Excluir Registro" />
-
+				<p:commandButton icon="ui-icon-trash" title="Excluir Registro"
+					update="formBuscaSetor" actionListener="#{buscaSetorView.deleteSetor(setor)}" >
+				
+					<p:confirm header="Deletar" message="Confirmar Remoção?" icon=" ui-icon-notice" />
+					
+				</p:commandButton>
+				
+				
 
 			</p:column>
 
 		</p:dataTable>
-
+<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-closethick" />
+				</p:confirmDialog>
 	</h:form>
 
 
