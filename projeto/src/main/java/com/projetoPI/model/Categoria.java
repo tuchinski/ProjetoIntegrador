@@ -71,4 +71,10 @@ public class Categoria {
 		this.documentos = documentos;
 	}
 	
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.nomeCategoria;
+	}
 }

@@ -53,7 +53,8 @@ public class DBFile {
 		this.fileCategoria = fileCategoria;
 	}
 
-
+	
+	
 	public String getFile_id() {
 		return file_id;
 	}
@@ -62,20 +63,20 @@ public class DBFile {
 		this.file_id = file_id;
 	}
 
-	public String getFileName() {
+	public String getFile_name() {
 		return file_name;
 	}
 
-	public void setFileName(String fileName) {
-		this.file_name = fileName;
+	public void setFile_name(String file_name) {
+		this.file_name = file_name;
 	}
 
-	public String getFileType() {
+	public String getFile_type() {
 		return file_type;
 	}
 
-	public void setFileType(String fileType) {
-		this.file_type = fileType;
+	public void setFile_type(String file_type) {
+		this.file_type = file_type;
 	}
 
 	public byte[] getData() {
@@ -94,6 +95,10 @@ public class DBFile {
 		this.fileCategoria = fileCategoria;
 	}
 	
+	public String getNomeCategoria() {
+		return this.fileCategoria.getNomeCategoria();
+	}
+
 	
 	
 

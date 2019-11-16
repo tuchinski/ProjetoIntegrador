@@ -54,10 +54,7 @@ public class Setor {
 
 	public void setNomeSetor(String nomeSetor) {
 		this.nomeSetor = nomeSetor;
-	}
-	
-	
-	
+	}	
 	
 	
 }
