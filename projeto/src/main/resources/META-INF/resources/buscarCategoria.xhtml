@@ -7,6 +7,17 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	template="templateSistema.xhtml">
 
+
+
+	<p:dialog header="Editar Categoria" id="dialog-modal-editarCategoria"
+		widgetVar="dialog-modal-editarCategoria" modal="false" height="400px"
+		width="550px">
+
+		<ui:include src="editarCategoria.xhtml" />
+
+	</p:dialog>
+
+
 	<h:form>
 		<p:toolbar>
 			<f:facet name="left">
@@ -53,8 +64,17 @@
 			</p:column>
 
 			<p:column style="width:35px">
-				<p:rowEditor />
+				<!-- <p:rowEditor /> -->
 				<!-- <p:commandButton icon="ui-icon-pencil" title="Editar Registro" /> -->
+
+				<p:column style="width:35px">
+				
+					<p:commandButton icon="ui-icon-pencil" title="Editar Registro"
+						ajax="true" actionListener="#{mostraCategoriaView.editarCat(categoria)}"
+						oncomplete="PF('dialog-modal-editarCategoria').show();"
+						update="dialog-modal-editarCategoria" />
+
+				</p:column>
 
 
 			</p:column>
