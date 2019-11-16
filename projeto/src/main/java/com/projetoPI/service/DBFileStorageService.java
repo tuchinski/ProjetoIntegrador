@@ -1,5 +1,7 @@
 package com.projetoPI.service;
 
+import java.util.List;
+
 import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,12 +38,9 @@ public class DBFileStorageService {
 				.orElseThrow(() -> new MyFileNotFoundException("File not found with id " + fileId));
 	}
 	
-	public DBFile criaArquivo(UploadedFile file, Categoria categoria) {
-		String fileName = StringUtils.cleanPath(file.getFileName());
-		DBFile dbFile = new DBFile(fileName, file.getContentType(), file.getContents());
-		dbFile.setFileCategoria(categoria);
-		return dbFileRepository.save(dbFile);
-		
+	public List<DBFile> getAllFile() {
+		return dbFileRepository.findAll();
+
 	}
 
 }
