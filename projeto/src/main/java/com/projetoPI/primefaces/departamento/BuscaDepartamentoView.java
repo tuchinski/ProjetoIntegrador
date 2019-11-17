@@ -7,6 +7,7 @@ import javax.inject.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
+import com.projetoPI.model.Categoria;
 import com.projetoPI.model.Departamento;
 import com.projetoPI.service.DepartamentoStorageService;
 
@@ -15,10 +16,21 @@ import com.projetoPI.service.DepartamentoStorageService;
 public class BuscaDepartamentoView {
 	private String nomeDepto;
 	
+	private Departamento deptoEdit;
+	
 	private List<Departamento> deptos;
 	
 	@Autowired
 	private DepartamentoStorageService service;
+
+	
+	public Departamento getDeptoEdit() {
+		return deptoEdit;
+	}
+
+	public void setDeptoEdit(Departamento deptoEdit) {
+		this.deptoEdit = deptoEdit;
+	}
 
 	public String getNomeDepto() {
 		return nomeDepto;
@@ -36,9 +48,19 @@ public class BuscaDepartamentoView {
 		this.deptos = deptos;
 	}
 
-	
+	public void chamaTelaDepto(Departamento d) {
+		System.out.println(d.getNome_departamento());
+		this.deptoEdit = d;
+	}
 
-		
+	public void editaDepto() {
+		System.out.println(this.deptoEdit.getNome_departamento());
+		service.editaDepartamento(this.deptoEdit);
+	}
+	
+	public void removeDepartamento(Departamento removeDepto) {
+		service.removeDepartamento(removeDepto);
+}
 	
 	
 	
