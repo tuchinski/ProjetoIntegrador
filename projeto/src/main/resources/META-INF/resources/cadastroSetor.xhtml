@@ -23,6 +23,15 @@
 			<p:outputLabel value="Nome: " />
 			<p:inputText maxlength="50" size="10" value="#{criaSetorView.text}" />
 
+			<p:outputLabel value="Departamento" />
+			<p:selectOneMenu id="departamento" >  <!-- converter="#{categoriaConverter}" -->
+				<f:selectItem itemLabel="Selecione Departamento" />
+				
+				<f:selectItems value="#{criaSetorView.departamentos}" var="d" itemLabel="#{d.nome_departamento}" />
+			</p:selectOneMenu>
+
+
+
 		</h:panelGrid>
 
 		<h:panelGrid columns="2">
