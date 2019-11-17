@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projetoPI.exeption.MyFileNotFoundException;
+import com.projetoPI.model.Categoria;
 import com.projetoPI.model.Departamento;
 import com.projetoPI.repository.DepartamentoRepository;
 
@@ -28,4 +29,17 @@ public class DepartamentoStorageService {
 	public List<Departamento> getAllDepartamento(){
 		return departamentoRepository.findAll();
 	}
+	
+	public Departamento editaDepartamento(Departamento novoDepto) {
+		return departamentoRepository.save(novoDepto);
+	}
+
+	public void removeDepartamento(Departamento deleteDepto) {
+		departamentoRepository.delete(deleteDepto);
+	}
+	
+	public void removeDepartamentoPorId(Long id) {
+		departamentoRepository.deleteById(id);
+	}
+	
 }

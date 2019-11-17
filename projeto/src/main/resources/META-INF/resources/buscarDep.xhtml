@@ -8,34 +8,76 @@
 	template="templateSistema.xhtml">
 
 
+
+
+	<p:dialog header="Editar Departamento" id="dialog-modal-editarDepto"
+		widgetVar="dialog-modal-editarDepto" modal="false" height="400px"
+		width="550px">
+
+		<ui:include src="editarDep.xhtml" />
+
+	</p:dialog>
+
+
 	<h:form>
 		<p:toolbar>
 			<f:facet name="left">
 				<h:outputText value="Buscar Departamento">
 				</h:outputText>
 			</f:facet>
-		</p:toolbar>
-		<h:panelGrid columns="4">
-			<p:outputLabel value="Descrição:" />
-			<p:inputText maxlength="50" size="30" value="#{buscaDepartamentoView.nomeDepto}" />
-
-			<p:commandButton value="Buscar" />
-			<p:commandButton value="Novo" action="cadastroDep.xhtml?faces-redirect=true"/>
-		</h:panelGrid>
-
-
+		</p:toolbar>	
 	</h:form>
 
 
-	<h:form>
-		<p:dataTable emptyMessage="Nenhum registro encontrado" var="departamento" value="#{buscaDepartamentoView.deptos}" > 
-			 <p:column headerText="Código" >
-				  <h:outputText value="#{departamento.departamento_id}" /> 
-			</p:column> 
-			<p:column headerText="Nome" filterBy="#{departamento.nome_departamento}"> 
-	 			 <h:outputText value="#{departamento.nome_departamento}" /> 
+	<h:form id="formBuscarDep">
+		<p:dataTable emptyMessage="Nenhum registro encontrado" var="departamento"
+					 value="#{buscaDepartamentoView.deptos}" rows="8"
+			paginator="true">
+					 
+			<f:facet name="footer">
+				<p:commandButton value="Novo" action="cadastroDep.xhtml" />
+			</f:facet>
+
+							
+			<p:column headerText="Código">
+				<h:outputText value="#{departamento.departamento_id}" />
 			</p:column>
+			
+			<p:column headerText="Nome" filterBy="#{departamento.nome_departamento}">
+				<h:outputText value="#{departamento.nome_departamento}" />
+			</p:column>
+
+			<p:column style="width:35px">
+				<p:column style="width:35px">
+
+					<p:commandButton icon="ui-icon-pencil" title="Editar Departamento"
+						ajax="true"
+						actionListener="#{buscaDepartamentoView.chamaTelaDepto(departamento)}"
+						oncomplete="PF('dialog-modal-editarDepto').show();"
+						update="dialog-modal-editarDepto" />
+
+				</p:column>
+			</p:column>
+
+			<p:column style="width:35px">
+
+				<p:commandButton icon="ui-icon-trash" title="Excluir Departamento"
+					update="formBuscarDep"
+					actionListener="#{buscaDepartamentoView.removeDepartamento(departamento)}">
+
+					<p:confirm header="ATENÇÃO"
+						message="Todos os setores relacionados ao departamento serão removidos!!"
+						icon="ui-icon-info" />
+				</p:commandButton>
+
+			</p:column>
+			
 		</p:dataTable>
+
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+			<p:commandButton value="Confirmar" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-closethick" />
+		</p:confirmDialog>
 
 	</h:form>
 
