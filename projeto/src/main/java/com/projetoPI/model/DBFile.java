@@ -1,5 +1,7 @@
 package com.projetoPI.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity(name = "Arquivo")
 @Table(name = "arquivo")
@@ -21,10 +25,29 @@ public class DBFile {
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	@Column(name = "file_id")
 	private String file_id;
-
+	
+	@NotNull
 	private String file_name;
 
+	@NotNull
 	private String file_type;
+	
+	
+	//Verifica se o arquivo foi validado pelo superior
+	private boolean isValidado;
+	
+	//Verifica se o arquivo pode ser publicado para todos
+	private boolean isPublicado;
+	
+	//Verifica se o arquivo foi rejeitado da validação ou publicação
+	private boolean isRejeitado;
+		
+	
+	@CreationTimestamp
+	private LocalDateTime createDateTime;
+	
+	@UpdateTimestamp
+	private LocalDateTime updateDateTime;
 
 	@Lob
 	@NotNull
@@ -32,8 +55,11 @@ public class DBFile {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "categoria_id")
+	@NotNull
 	private Categoria fileCategoria;
 
+	
+//////CONSTRUTORES//////////////////////////	
 	public DBFile() {
 		super();
 	}
@@ -43,6 +69,8 @@ public class DBFile {
 		this.file_name = fileName;
 		this.file_type = fileType;
 		this.data = data;
+		this.isPublicado = false;
+		this.isValidado = true;
 	}
 
 	public DBFile(String fileName, String fileType, @NotNull byte[] data, Categoria fileCategoria) {
@@ -51,8 +79,12 @@ public class DBFile {
 		this.file_type = fileType;
 		this.data = data;
 		this.fileCategoria = fileCategoria;
+		this.isPublicado = false;
+		this.isValidado = false;
 	}
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+/////////GETTERS E SETTERS//////////////////////////////////////////////////////////////////////////////////
 	
 	
 	public String getFile_id() {
@@ -99,9 +131,47 @@ public class DBFile {
 		return this.fileCategoria.getNomeCategoria();
 	}
 
-	
-	
+	public boolean isValidado() {
+		return isValidado;
+	}
 
-	
+	public void setValidado(boolean isValidado) {
+		this.isValidado = isValidado;
+	}
 
+	public boolean isPublicado() {
+		return isPublicado;
+	}
+
+	public void setPublicado(boolean isPublicado) {
+		this.isPublicado = isPublicado;
+	}
+
+	public LocalDateTime getCreateDateTime() {
+		return createDateTime;
+	}
+
+	public void setCreateDateTime(LocalDateTime createDateTime) {
+		this.createDateTime = createDateTime;
+	}
+
+	public boolean isRejeitado() {
+		return isRejeitado;
+	}
+
+	public void setRejeitado(boolean isRejeitado) {
+		this.isRejeitado = isRejeitado;
+	}
+
+	public LocalDateTime getUpdateDateTime() {
+		return updateDateTime;
+	}
+
+	public void setUpdateDateTime(LocalDateTime updateDateTime) {
+		this.updateDateTime = updateDateTime;
+	}
+	
+	
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

@@ -7,9 +7,9 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	template="templateSistema.xhtml">
 
-	<h2>Documentos</h2>
+	<h2>Documentos Publicados</h2>
 
-	<p:dataTable var="arquivo" value="#{homeView.arquivos}"
+	<p:dataTable var="arquivo" value="#{homeView.arquivos}" emptyMessage="Sem documentos publicados"
 		selectionMode="single" rowKey="#{arquivo.file_id}" style="width:75%">
 
 		<p:ajax event="rowSelect" listener="#{homeView.onRowSelect}"
@@ -22,7 +22,15 @@
 		<p:column headerText="Categoria">
 			<h:outputText value="#{arquivo.fileCategoria.nomeCategoria}" />
 		</p:column>
+		
+		<p:column headerText="Data de Criação">
+			<h:outputText value="#{arquivo.createDateTime}" >
+				<f:convertDateTime type="localDate" pattern="dd/MM/yyyy HH:MM" />
+			</h:outputText>
+		</p:column>
 
+		
+ 
 	</p:dataTable>
 	
 	<!-- <p:media value="#{fileCategoria.data}" width="50%" height="300px" player="pdf" id="abrePDF" rendered="true" cache="false" ></p:media> -->
