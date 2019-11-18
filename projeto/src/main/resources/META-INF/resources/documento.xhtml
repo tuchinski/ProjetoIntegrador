@@ -11,7 +11,7 @@
 	<h:form>
 		<p:toolbar>
 			<f:facet name="left">
-				<h:outputText value="Documentos">
+				<h:outputText value="Upload Documentos">
 				</h:outputText>
 			</f:facet>
 		</p:toolbar>
@@ -29,7 +29,7 @@
 	
 			
 			<p:fileUpload fileUploadListener="#{fileUploadView.upload}"
-				mode="advanced" dragDropSupport="true" multiple="true" update="messages" />
+				mode="advanced" dragDropSupport="true" multiple="true" update="messages" sequential="true" />
 
 			<p:growl id="messages" showDetail="true" />
 	

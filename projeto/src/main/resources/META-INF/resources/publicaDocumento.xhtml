@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	template="templateSistema.xhtml">
+	
+	<h2>Documentos para Publicação</h2>
+
+
+	<h:form id="publicaDoc">
+		<p:dataTable var="arquivo" value="#{publicaDocumentoView.arquivos}" emptyMessage="Sem documentos aguardando aprovação"
+			selectionMode="single" rowKey="#{arquivo.file_id}" style="width:75%">
+
+			<p:ajax event="rowSelect" listener="#{publicaDocumentoView.onRowSelect}"
+				oncomplete="PF('dlg1').show()"  />
+	
+			<p:column headerText="Nome Arquivo">
+				<h:outputText value="#{arquivo.file_name}" />
+			</p:column>
+	
+			<p:column headerText="Categoria">
+				<h:outputText value="#{arquivo.fileCategoria.nomeCategoria}" />
+			</p:column>
+			
+			<p:column headerText="Data de Criação">
+				<h:outputText value="#{arquivo.createDateTime}" >
+					<f:convertDateTime type="localDate" pattern="dd/MM/yyyy HH:MM" />
+				</h:outputText>
+			</p:column>
+			
+			<p:column headerText="Publicar Documento?">
+				<p:commandButton  icon="ui-icon-check" actionListener="#{publicaDocumentoView.publicaDocumento(arquivo)}" update="publicaDoc">
+					<p:confirm header="PUBLICAR DOCUMENTO" message="Confirma publicação do Documento?" icon="ui-icon-info" />
+				</p:commandButton>
+				<p:commandButton  icon="ui-icon-closethick" actionListener="#{publicaDocumentoView.rejeitaPublicacaoDocumento(arquivo)}" update="publicaDoc">
+					<p:confirm header="REJEITAR DOCUMENTO" message="Confirma rejeição do Documento?" icon="ui-icon-info" />
+				</p:commandButton>		
+			</p:column>
+ 
+		</p:dataTable>
+	
+		<p:confirmDialog  global="true" showEffect="fade" hideEffect="fade">
+			<p:commandButton value="Confirmar" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-closethick" />
+		</p:confirmDialog>
+	</h:form>
+	
+	<!-- <p:media value="#{fileCategoria.data}" width="50%" height="300px" player="pdf" id="abrePDF" rendered="true" cache="false" ></p:media> -->
+
+	<p:dialog header="Visualizar" widgetVar="dlg1" modal="false">
+		<h:form id="form">
+
+			<p:messages id="msgs" />
+
+			 <h:panelGrid columns="1" cellpadding="5">
+
+				<p:media value="#{publicaDocumentoView.streamedContent}" player="pdf" width="600px" height="300px">
+					<f:param name="id" value="#{publicaDocumentoView.generateRandomIdForNotCaching()}" /> 
+				</p:media>
+
+				<p:commandButton value="download" ajax="false" onclick="PrimeFaces.monitorDownload(startOffer, stopOffer);">
+					<p:fileDownload value="#{publicaDocumentoView.streamedContent}" />
+				</p:commandButton>
+
+			</h:panelGrid> 
+
+		</h:form>
+	</p:dialog>
+
+	<h:form>
+		<p:remoteCommand name="refreshStreamOffer"
+			actionListener="#{formView.refreshStream()}" />
+	</h:form>
+
+	<script type="text/javascript">
+		function startOffer() {
+			refreshStreamOffer();
+		}
+
+		function stopOffer() {
+			refreshStreamOffer();
+		}
+	</script>
+	
+	
+</ui:decorate>

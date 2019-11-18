@@ -1,4 +1,4 @@
-package com.projetoPI.primefaces;
+package com.projetoPI.primefaces.documentos;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.projetoPI.primefaces;
+package com.projetoPI.primefaces.documentos;
 
 
 
@@ -63,7 +63,9 @@ public class HomeView {
 	}
 
 	public List<DBFile> getArquivos() {
-		return dbFileStorageService.getAllFile();
+//		return dbFileStorageService.getAllFile();
+		System.out.println("heey");
+		return dbFileStorageService.getAllFilePublicado();
 	}
 
 	public void setArquivos(List<DBFile> arquivos) {

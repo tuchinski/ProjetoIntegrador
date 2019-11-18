@@ -38,9 +38,23 @@ public class DBFileStorageService {
 				.orElseThrow(() -> new MyFileNotFoundException("File not found with id " + fileId));
 	}
 	
+	public void editaFile(DBFile novoArquivo) {
+		dbFileRepository.save(novoArquivo);
+	}
+	
 	public List<DBFile> getAllFile() {
 		return dbFileRepository.findAll();
-
 	}
-
+	
+	public List<DBFile> getAllFilePublicado(){
+		return dbFileRepository.getAllDocumentosAprovadosPublicacao();
+	}
+	
+	public List<DBFile> getAllFileParaValidacao(){
+		return dbFileRepository.getAllDocumentosParaValidacao();
+	}
+	
+	public List<DBFile> getAllFileParaPublicacao(){
+		return dbFileRepository.getAllDocumentosParaPublicacao();
+	}
 }
