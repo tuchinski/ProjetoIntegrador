@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projetoPI.exeption.MyFileNotFoundException;
+import com.projetoPI.model.Departamento;
 import com.projetoPI.model.Setor;
 import com.projetoPI.repository.SetorRepository;
 
@@ -15,12 +16,12 @@ public class SetorStorageService {
 	@Autowired
 	private SetorRepository repository;
 	
-	public Setor storeSetor(String nomeSetor) {
+	public Setor storeSetor(String nomeSetor, Departamento depto) {
 		if(nomeSetor == null) {
 			System.out.println("Nome do setor Nulo");
 			return null;
 		}else {
-			Setor setor = new Setor(nomeSetor);
+			Setor setor = new Setor(nomeSetor,depto);
 			return repository.save(setor);
 		}
 		

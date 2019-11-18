@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -19,6 +21,11 @@ public class Setor {
 	
 	@NotNull
 	private String nomeSetor;
+	
+	@ManyToOne
+	@JoinColumn(name = "departamento_id")
+	@NotNull
+	private Departamento setorDepartamento;
 
 	public Setor() {
 		super();
@@ -28,6 +35,14 @@ public class Setor {
 		super();
 		this.setor_id = setor_id;
 		this.nomeSetor = nomeSetor;
+	}
+	
+	
+
+	public Setor(@NotNull String nomeSetor, @NotNull Departamento setorDepartamento) {
+		super();
+		this.nomeSetor = nomeSetor;
+		this.setorDepartamento = setorDepartamento;
 	}
 
 	public Setor(String nomeSetor) {
@@ -54,6 +69,14 @@ public class Setor {
 
 	public void setNomeSetor(String nomeSetor) {
 		this.nomeSetor = nomeSetor;
+	}
+
+	public Departamento getSetorDepartamento() {
+		return setorDepartamento;
+	}
+
+	public void setSetorDepartamento(Departamento setorDepartamento) {
+		this.setorDepartamento = setorDepartamento;
 	}	
 	
 	

@@ -38,39 +38,26 @@
 				<p:commandButton value="Novo" action="cadastroSetor.xhtml" />
 			</f:facet>
 
-			<p:column headerText="Código">
+			<p:column headerText="Código" sortable="true">
 				<h:outputText value="#{setor.setor_id}" />
 			</p:column>
 
-			<p:column headerText="Nome" filterBy="#{setor.nomeSetor}">
-
-				<p:cellEditor>
-					<f:facet name="output">
-						<h:outputText value="#{setor.nomeSetor}" />
-					</f:facet>
-					<f:facet name="input">
-						<p:inputText value="#{setor.nomeSetor}" />
-					</f:facet>
-				</p:cellEditor>
-
-				<!-- <h:outputText value="#{setor.nomeSetor}" /> -->
-
+			<p:column headerText="Nome" filterBy="#{setor.nomeSetor}"  >
+				<h:outputText value="#{setor.nomeSetor}" />
+			</p:column>
+			
+			<p:column headerText="Departamento" filterBy="#{setor.setorDepartamento.nome_departamento}" >
+				<h:outputText value="#{setor.setorDepartamento.nome_departamento}" />
 			</p:column>
 
 			<p:column style="width:35px">
-				<!-- <p:rowEditor /> -->
-
 				<p:commandButton icon="ui-icon-pencil" title="Editar Registro"
 					ajax="true"
 					actionListener="#{buscaSetorView.chamaTelaEditar(setor)}"
 					oncomplete="PF('dialog-modal-editarSetor').show();"
 					update="dialog-modal-editarSetor" />
-
 			</p:column>
-			<!-- actionListener="#{consultarPessoaController.Editar(pessoa)}" -->
-
-
-
+		
 			<p:column style="width:35px">
 
 				<p:commandButton icon="ui-icon-trash" title="Excluir Registro"
