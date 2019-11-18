@@ -53,6 +53,8 @@ public class PublicaDocumentoView {
 	}
 
 	public void rejeitaPublicacaoDocumento(DBFile arquivo) {
+		arquivo.setRejeitado(true);
+		dbFileStorageService.editaFile(arquivo);
 		System.out.println("Rejeitou publicacao" + arquivo.getFile_name());
 	}
 
