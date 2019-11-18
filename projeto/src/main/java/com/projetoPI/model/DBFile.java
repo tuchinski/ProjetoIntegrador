@@ -70,7 +70,8 @@ public class DBFile {
 		this.file_type = fileType;
 		this.data = data;
 		this.isPublicado = false;
-		this.isValidado = true;
+		this.isValidado = false;
+		this.isRejeitado = false;
 	}
 
 	public DBFile(String fileName, String fileType, @NotNull byte[] data, Categoria fileCategoria) {
@@ -81,6 +82,7 @@ public class DBFile {
 		this.fileCategoria = fileCategoria;
 		this.isPublicado = false;
 		this.isValidado = false;
+		this.isRejeitado = false;
 	}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	

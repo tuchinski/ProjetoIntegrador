@@ -7,14 +7,14 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	template="templateSistema.xhtml">
 	
-	<h2>Documentos para Validação</h2>
+	<h2>Documentos Rejeitados</h2>
 
 
-<h:form id="validaDoc">
-		<p:dataTable var="arquivo" value="#{validaDocumentoView.arquivos}" emptyMessage="Sem documentos aguardando validação"
+	<h:form id="publicaDoc">
+		<p:dataTable var="arquivo" value="#{documentosRejeitadosView.arquivos}" emptyMessage="Sem documentos rejeitados"
 			selectionMode="single" rowKey="#{arquivo.file_id}" style="width:75%">
 
-			<p:ajax event="rowSelect" listener="#{validaDocumentoView.onRowSelect}"
+			<p:ajax event="rowSelect" listener="#{documentosRejeitadosView.onRowSelect}"
 				oncomplete="PF('dlg1').show()"  />
 	
 			<p:column headerText="Nome Arquivo">
@@ -31,22 +31,22 @@
 				</h:outputText>
 			</p:column>
 			
-			<p:column headerText="Validar Documento?">
-				<p:commandButton  icon="ui-icon-check" actionListener="#{validaDocumentoView.validaDocumento(arquivo)}" update="validaDoc">
-					<p:confirm header="VALIDAR DOCUMENTO" message="Confirma Validação do Documento?" icon="ui-icon-info" />
+<!-- 			<p:column headerText="Publicar Documento?">
+				<p:commandButton  icon="ui-icon-check" actionListener="#{documentosRejeitadosView.enviaDocumento(arquivo)}" update="publicaDoc">
+					<p:confirm header="REENVIAR DOCUMENTO" message="Confirma publicação do Documento?" icon="ui-icon-info" />
 				</p:commandButton>
-				<p:commandButton  icon="ui-icon-closethick" actionListener="#{validaDocumentoView.rejeitaDocumento(arquivo)}" update="validaDoc">
-					<p:confirm header="REJEITAR DOCUMENTO" message="Confirma rejeição do Documento?" icon="ui-icon-info" />
+				<p:commandButton  icon="ui-icon-closethick" actionListener="#{documentosRejeitadosView.excluiDocumento(arquivo)}" update="publicaDoc">
+					<p:confirm header="EXCLUIR DOCUMENTO" message="Confirma rejeição do Documento?" icon="ui-icon-info" />
 				</p:commandButton>		
 			</p:column>
- 
-	</p:dataTable>
+ --> 
+		</p:dataTable>
 	
-	<p:confirmDialog  global="true" showEffect="fade" hideEffect="fade">
-					<p:commandButton value="Confirmar" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-					<p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-closethick" />
-				</p:confirmDialog>
-</h:form>
+<!-- 		<p:confirmDialog  global="true" showEffect="fade" hideEffect="fade">
+			<p:commandButton value="Confirmar" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-closethick" />
+		</p:confirmDialog> -->
+	</h:form>
 	
 	<!-- <p:media value="#{fileCategoria.data}" width="50%" height="300px" player="pdf" id="abrePDF" rendered="true" cache="false" ></p:media> -->
 
@@ -57,12 +57,12 @@
 
 			 <h:panelGrid columns="1" cellpadding="5">
 
-				<p:media value="#{validaDocumentoView.streamedContent}" player="pdf" width="600px" height="300px">
-					<f:param name="id" value="#{validaDocumentoView.generateRandomIdForNotCaching()}" /> 
+				<p:media value="#{documentosRejeitadosView.streamedContent}" player="pdf" width="600px" height="300px">
+					<f:param name="id" value="#{documentosRejeitadosView.generateRandomIdForNotCaching()}" /> 
 				</p:media>
 
 				<p:commandButton value="download" ajax="false" onclick="PrimeFaces.monitorDownload(startOffer, stopOffer);">
-					<p:fileDownload value="#{validaDocumentoView.streamedContent}" />
+					<p:fileDownload value="#{documentosRejeitadosView.streamedContent}" />
 				</p:commandButton>
 
 			</h:panelGrid> 

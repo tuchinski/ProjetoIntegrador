@@ -17,12 +17,11 @@ import com.projetoPI.service.DBFileStorageService;
 
 @ManagedBean
 @ViewScoped
-public class ValidaDocumentoView {
-
-	private DBFile arquivoSelecionado;
-
+public class DocumentosRejeitadosView {
 	private List<DBFile> arquivos;
 
+	private DBFile arquivoSelecionado;
+	
 	@Autowired
 	private DBFileStorageService dbFileStorageService;
 
@@ -47,16 +46,14 @@ public class ValidaDocumentoView {
 		return java.util.UUID.randomUUID().toString();
 	}
 
-	public void validaDocumento(DBFile arquivo) {
-		arquivo.setValidado(true);
-		dbFileStorageService.editaFile(arquivo);
-		System.out.println("Validou " + arquivo.getFile_name());
+	public void enviaDocumento(DBFile arquivo) {
+//		arquivo.setPublicado(true);
+//		dbFileStorageService.editaFile(arquivo);
+		System.out.println("Reenviou " + arquivo.isPublicado());
 	}
 
-	public void rejeitaDocumento(DBFile arquivo) {
-		arquivo.setRejeitado(true);
-		dbFileStorageService.editaFile(arquivo);
-		System.out.println("Rejeitou " + arquivo.getFile_name());
+	public void excluiDocumento(DBFile arquivo) {
+		System.out.println("Excluiu " + arquivo.getFile_name());
 	}
 
 /////getters e setters//////////////////////////////
@@ -70,9 +67,8 @@ public class ValidaDocumentoView {
 	}
 
 	public List<DBFile> getArquivos() {
-//		return dbFileStorageService.getAllFile();
-		System.out.println("getArquivos");
-		return dbFileStorageService.getAllFileParaValidacao();
+		System.out.println("getDocsRejeitados");
+		return dbFileStorageService.getAllFileRejeitado();
 	}
 
 	public void setArquivos(List<DBFile> arquivos) {
@@ -86,5 +82,4 @@ public class ValidaDocumentoView {
 	public void setStreamedContent(StreamedContent streamedContent) {
 		this.streamedContent = streamedContent;
 	}
-
 }

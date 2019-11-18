@@ -47,14 +47,17 @@ public class DBFileStorageService {
 	}
 	
 	public List<DBFile> getAllFilePublicado(){
-		return dbFileRepository.getAllDocumentosAprovadosPublicacao();
+		return dbFileRepository.findByIsPublicadoAndIsValidadoAndIsRejeitado(true, true, false);
 	}
 	
 	public List<DBFile> getAllFileParaValidacao(){
-		return dbFileRepository.getAllDocumentosParaValidacao();
+		return dbFileRepository.findByIsPublicadoAndIsValidadoAndIsRejeitado(false, false, false);
 	}
 	
 	public List<DBFile> getAllFileParaPublicacao(){
-		return dbFileRepository.getAllDocumentosParaPublicacao();
+		return dbFileRepository.findByIsPublicadoAndIsValidadoAndIsRejeitado(false, true, false);
+	}
+	public List<DBFile> getAllFileRejeitado(){
+		return dbFileRepository.findByIsRejeitado(true);
 	}
 }

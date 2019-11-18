@@ -13,24 +13,26 @@ import com.projetoPI.model.DBFile;
 @Repository
 public interface DBFileRepository extends JpaRepository<DBFile, String>{
 
+
 	/**
-	 * @return Lista de Documentos aprovados para publicação
+	 * 
+	 * @param publicado Verifica se o arquivo foi publicado ou não
+	 * @param validado Verifica se o arquivo foi validado ou não
+	 * @param rejeitado Verifica se o arquivo foi rejeitado ou não
+	 * @return Lista dos arquivos de acordo com os parâmetros passados
 	 */
-	@Query("SELECT a FROM Arquivo a WHERE a.isPublicado = 1 AND a.isValidado = 1")
-//	@Query(value="SELECT * FROM arquivo WHERE arquivo.is_publicado = 1", nativeQuery = true)
-	public List<DBFile> getAllDocumentosAprovadosPublicacao();
+	public List<DBFile> findByIsPublicadoAndIsValidadoAndIsRejeitado(boolean publicado, boolean validado, boolean rejeitado);
 	
+	
+//	exemplo de busca no banco usando query
+//	/**
+//	 * @return Lista de Documentos esperando Validação
+//	 */
+//	@Query("SELECT a FROM Arquivo a WHERE a.isPublicado = 0 AND a.isValidado = 1")
+//	public List<DBFile> getAllDocumentosParaPublicacao();
+//	
 	/**
-	 * @return Lista de Documentos esperando Validação
+	 * @return Lista dos Documentos rejeitados
 	 */
-	@Query("SELECT a FROM Arquivo a WHERE a.isPublicado = 0 AND a.isValidado = 0")
-	public List<DBFile> getAllDocumentosParaValidacao();
-	
-	
-	/**
-	 * @return Lista de Documentos esperando Validação
-	 */
-	@Query("SELECT a FROM Arquivo a WHERE a.isPublicado = 0 AND a.isValidado = 1")
-	public List<DBFile> getAllDocumentosParaPublicacao();
-	
+	public List<DBFile> findByIsRejeitado(boolean isRejeitado);
 }
