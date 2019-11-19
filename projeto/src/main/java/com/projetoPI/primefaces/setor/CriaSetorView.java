@@ -20,8 +20,9 @@ public class CriaSetorView {
 
 	private String text;
 	
+
 	private Departamento selectedDepto;
-	
+
 	private List<Departamento> departamentos;
 	
 

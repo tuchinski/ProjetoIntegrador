@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	template="templateSistema.xhtml">
+	
+
+	<h:form id="frmCadFunc">
+		<p:toolbar>
+			<f:facet name="left">
+				<h:outputText value="Cadastro Funcionario">
+				</h:outputText>
+			</f:facet>
+		</p:toolbar>
+
+		<h:panelGrid columns="2" id="pnlCadFunc">
+			<p:outputLabel value="Nome: " />
+			<p:inputText size="50"  />
+
+			<p:outputLabel value="Sexo:" for="selectOneRadio-sexo" />
+			
+			<p:selectOneRadio id="selectOneRadio-sexo">
+				<f:selectItem itemLabel="Masculino" itemValue="M" />
+				<f:selectItem itemLabel="Feminino" itemValue="F" />
+
+			</p:selectOneRadio>
+			
+			<p:outputLabel value="RG"/>
+			<p:inputText size="20"  />
+			
+			<p:outputLabel value="CPF"/>
+			<p:inputMask size="20" mask="999.999.999-99" />
+			
+			<p:outputLabel value="Telefone"/>
+			<p:inputText size="20"  />
+			
+			<p:outputLabel value="E-mail"/>
+			<p:inputText size="50"  />
+			
+			<p:outputLabel value="Endereço"/>
+			<p:inputText size="50"  />
+			
+			<p:outputLabel value="E-mail"/>
+			<p:inputText size="50"  />
+
+			<p:outputLabel value="Setor" />
+			<p:selectOneMenu id="setor">
+				<!-- converter="#{categoriaConverter}" -->
+				<f:selectItem itemLabel="Selecione Setor" />
+			</p:selectOneMenu>
+			
+			<p:outputLabel value="Cargo(Permissão)"/>
+			<p:selectOneMenu >				
+				<f:selectItem itemLabel="Selecione Setor"  />
+				<f:selectItem itemLabel="Funcionario"  itemValue="func"/>
+				<f:selectItem itemLabel="Gerente Setor"  itemValue="gerenteSet" />
+				<f:selectItem itemLabel="Gerente Departamento"  itemValue="gerenteDep" />
+				<f:selectItem itemLabel="Chefe Departamento"  itemValue="chefeDep" />
+
+			</p:selectOneMenu>
+			
+			<p:outputLabel value="Senha"/>
+			<p:password maxlength="8" size="10" />
+
+
+
+		</h:panelGrid>
+
+
+
+	</h:form>
+
+
+
+</ui:decorate>
