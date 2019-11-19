@@ -7,21 +7,27 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 
-<h:form>
-	<h:panelGrid columns="2" id="pnlCadSetor" >
-
-		<p:outputLabel value="Codigo: "/>
-		<p:inputText size="20" readonly="true" value="#{buscaSetorView.setorEdit.setor_id}" />
-
-		<p:outputLabel value="Nome: " />
-		<p:inputText maxlength="50" size="20" value="#{buscaSetorView.setorEdit.nomeSetor}" />
-
-		<p:commandButton value="Alterar" id="commandButton-alterar" oncomplete="PF('dialog-modal-editarSetor').hide();"
-			icon="ui-icon-gear" update="formBuscaSetor" actionListener="#{buscaSetorView.editaSetor}"/>
-
-	</h:panelGrid>
-
-
-</h:form>
+	<h:form>
+		<h:panelGrid columns="2" id="pnlCadSetor" >
+	
+			<p:outputLabel value="Codigo: "/>
+			<p:inputText size="20" readonly="true" value="#{buscaSetorView.setorEdit.setor_id}" />
+	
+			<p:outputLabel value="Nome: " />
+			<p:inputText maxlength="50" size="20" value="#{buscaSetorView.setorEdit.nomeSetor}" />
+			
+			
+			<p:outputLabel value="Departamento: " />
+			<p:selectOneMenu id="departamento" required="true" converter="#{departamentoConverter}"  value="#{buscaSetorView.setorEdit.setorDepartamento}" >
+				<f:selectItems value="#{criaSetorView.departamentos}" var="d" itemLabel="#{d.nome_departamento}" />
+			</p:selectOneMenu>
+	
+			<p:commandButton value="Alterar" id="commandButton-alterar" oncomplete="PF('dialog-modal-editarSetor').hide();"
+				icon="ui-icon-gear" update="formBuscaSetor pnlCadSetor :msgGlobal" actionListener="#{buscaSetorView.editaSetor}"/>
+	
+		</h:panelGrid>
+	
+	
+	</h:form>
 
 </html>

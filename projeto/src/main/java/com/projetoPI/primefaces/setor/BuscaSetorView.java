@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
 import com.projetoPI.model.Setor;
+import com.projetoPI.primefaces.FacesUtil;
 import com.projetoPI.service.SetorStorageService;
 
 @Named
@@ -62,6 +63,7 @@ public class BuscaSetorView {
 	public void editaSetor() {
 		System.out.println(this.setorEdit.getNomeSetor());
 		setorStorageService.editSetor(this.setorEdit);
+		FacesUtil.addMsgInfo("Setor Editado");
 	}
 	
 

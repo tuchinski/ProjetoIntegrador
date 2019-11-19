@@ -15,6 +15,8 @@ public class FacesUtil {
 	public void addMsgError(String mensagem) {
 		FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, mensagem, mensagem);
 		
+		System.out.println("ERRO!!!! " + mensagem);
+		
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		facesContext.addMessage(null, facesMessage);
 	}

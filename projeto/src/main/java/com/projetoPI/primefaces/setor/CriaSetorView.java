@@ -20,6 +20,9 @@ public class CriaSetorView {
 
 	private String text;
 	
+
+	private Departamento selectedDepto;
+
 	private List<Departamento> departamentos;
 	
 
@@ -53,13 +56,23 @@ public class CriaSetorView {
 		System.out.println(this.text);
 		if(this.text.isEmpty()) {
 			System.out.println("String vazia");
+			FacesUtil.addMsgInfo("Não é possível criar um Setor sem nome!!!");
 		}else {
-			this.service.storeSetor(text);
+//			System.out.println("aaaaa" + selectedDepto.getNome_departamento());
+			this.service.storeSetor(this.text,this.selectedDepto);
 			FacesUtil.addMsgInfo("Setor Salvo com Sucesso");
 		}
 		this.setText("");
 		
 		
 		
+	}
+
+	public Departamento getSelectedDepto() {
+		return selectedDepto;
+	}
+
+	public void setSelectedDepto(Departamento selectedDepto) {
+		this.selectedDepto = selectedDepto;
 	}
 }
