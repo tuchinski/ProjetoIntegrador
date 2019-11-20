@@ -57,6 +57,10 @@ public class DBFile {
 	@JoinColumn(name = "categoria_id")
 	@NotNull
 	private Categoria fileCategoria;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "compendio_id")
+	private Compendio compendios;
 
 	
 //////CONSTRUTORES//////////////////////////	
@@ -172,6 +176,15 @@ public class DBFile {
 	public void setUpdateDateTime(LocalDateTime updateDateTime) {
 		this.updateDateTime = updateDateTime;
 	}
+
+	public Compendio getCompendios() {
+		return compendios;
+	}
+
+	public void setCompendios(Compendio compendios) {
+		this.compendios = compendios;
+	}
+
 	
 	
 	
