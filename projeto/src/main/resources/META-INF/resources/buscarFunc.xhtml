@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	template="templateSistema.xhtml">
+
+	<p:dialog header="Editar Funcionário" id="dialog-modal-editarFunc"
+		widgetVar="dialog-modal-editarFunc" height="400px"
+		width="550px" resizable="false">
+	</p:dialog>
+	
+	<h:form>
+		<p:toolbar>
+			<f:facet name="left">
+				<h:outputText value="Buscar Funcionário">
+				</h:outputText>
+			</f:facet>
+		</p:toolbar>
+
+	</h:form>
+	
+	<h:form id="formBuscarFunc">
+		<p:dataTable emptyMessage="Nenhum registro encontrado"
+			var="funcionario" editable="true" rows="8" paginator="true">
+			
+			<f:facet name="footer">
+				<p:commandButton value="Novo" action="cadastroFunc.xhtml" />
+			</f:facet>
+			
+			<p:column headerText="Código" sortable="true">
+				<h:outputText/>
+			</p:column>
+			
+			<p:column headerText="nome" sortable="true">
+				<h:outputText/>
+			</p:column>
+			
+			<p:column headerText="cpf" sortable="true">
+				<h:outputText/>
+			</p:column>
+
+			<p:column style="width:35px">
+
+				<p:commandButton icon="ui-icon-pencil" title="Editar Cadastro">
+
+					<p:confirm header="" message="Confirmar Edição?"
+						icon=" ui-icon-notice" />
+
+				</p:commandButton>
+			</p:column>
+
+			<p:column style="width:35px">
+
+					<p:commandButton icon="ui-icon-trash" title="Excluir Registro">
+
+						<p:confirm header="Deletar" message="Confirmar Remoção?"
+							icon=" ui-icon-notice" />
+
+					</p:commandButton>
+
+				</p:column>
+		</p:dataTable>
+	</h:form>
+
+
+
+</ui:decorate>
