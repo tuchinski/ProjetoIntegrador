@@ -2,17 +2,25 @@ package com.projetoPI.primefaces.compendio;
 
 import java.util.List;
 
-import com.projetoPI.model.DBFile;
-import com.projetoPI.service.DBFileStorageService;
+import javax.annotation.ManagedBean;
+import javax.faces.view.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.projetoPI.model.DBFile;
+import com.projetoPI.service.DBFileStorageService;
+
+@ManagedBean
+@ViewScoped
 public class CadastraCompendioView {
     
     
     private String nomeCompendio;
 
-    private List<DBFile> listaArquivos;
+    @SuppressWarnings("unused")
+	private List<DBFile> listaArquivos;
+    
+    private List<DBFile> listaArquivosSelecionados;
 
     @Autowired
     private DBFileStorageService dbFileStorageService;
@@ -49,4 +57,12 @@ public class CadastraCompendioView {
     public void setListaArquivos(List<DBFile> listaArquivos) {
         this.listaArquivos = listaArquivos;
     }
+
+	public List<DBFile> getListaArquivosSelecionados() {
+		return listaArquivosSelecionados;
+	}
+
+	public void setListaArquivosSelecionados(List<DBFile> listaArquivosSelecionados) {
+		this.listaArquivosSelecionados = listaArquivosSelecionados;
+	}
 }

@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import com.projetoPI.model.Compendio;
 import com.projetoPI.model.DBFile;
 
 
@@ -35,4 +36,6 @@ public interface DBFileRepository extends JpaRepository<DBFile, String>{
 	 * @return Lista dos Documentos rejeitados
 	 */
 	public List<DBFile> findByIsRejeitado(boolean isRejeitado);
+	
+	public List<DBFile> findByCompendio(Compendio c);
 }

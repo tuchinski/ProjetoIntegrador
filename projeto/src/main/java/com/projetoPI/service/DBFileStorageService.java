@@ -60,4 +60,8 @@ public class DBFileStorageService {
 	public List<DBFile> getAllFileRejeitado(){
 		return dbFileRepository.findByIsRejeitado(true);
 	}
+	
+	public List<DBFile> getAllFileSemCompendio(){
+		return null;
+	}
 }

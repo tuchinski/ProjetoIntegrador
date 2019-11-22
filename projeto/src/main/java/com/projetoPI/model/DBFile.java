@@ -60,7 +60,7 @@ public class DBFile {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "compendio_id")
-	private Compendio compendios;
+	private Compendio compendio;
 
 	
 //////CONSTRUTORES//////////////////////////	
@@ -177,12 +177,12 @@ public class DBFile {
 		this.updateDateTime = updateDateTime;
 	}
 
-	public Compendio getCompendios() {
-		return compendios;
+	public Compendio getCompendio() {
+		return compendio;
 	}
 
-	public void setCompendios(Compendio compendios) {
-		this.compendios = compendios;
+	public void setCompendio(Compendio compendio) {
+		this.compendio = compendio;
 	}
 
 	
