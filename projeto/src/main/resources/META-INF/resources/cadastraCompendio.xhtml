@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	template="templateSistema.xhtml">
-	
-	
-	
-	
-	
-	
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" template="templateSistema.xhtml">
+
+
+
+	<h:panelGrid id="pnlCadCompendio" columns="2">
+
+		<p:outputLabel value="Codigo: " />
+		<p:inputText size="20" readonly="true" />
+
+		<p:outputLabel value="Nome Compêndio: " />
+		<p:inputText maxlength="50" size="10" value="#{cadastraCompendioView.nomeCompendio}" />
+
+
+	</h:panelGrid>
+
+	<h:form id="formNovoCompendio">
+
+		<p:dataTable emptyMessage="Nenhum documento sem Compêndio encontrado" var="arquivo"
+			value="#{cadastraCompendioView.listaArquivos}" editable="true" rows="8" paginator="true">
+
+			<p:column selectionMode="multiple" style="width:16px;text-align:center" />
+
+			<p:column headerText="Codigo">
+				<h:outputText value="#{arquivo.id}" />
+			</p:column>
+
+			<p:column headerText="Nome" filterBy="#{arquivo.file_name}">
+				<h:outputText value="#{arquivo.file_name}" />
+			</p:column>
+
+		</p:dataTable>
+
+	</h:form>
+
+
 </ui:decorate>
