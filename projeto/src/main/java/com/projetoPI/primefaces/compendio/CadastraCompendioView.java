@@ -7,7 +7,10 @@ import javax.faces.view.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.projetoPI.model.Compendio;
 import com.projetoPI.model.DBFile;
+import com.projetoPI.primefaces.FacesUtil;
+import com.projetoPI.service.CompendioStorageService;
 import com.projetoPI.service.DBFileStorageService;
 
 @ManagedBean
@@ -25,8 +28,27 @@ public class CadastraCompendioView {
     @Autowired
     private DBFileStorageService dbFileStorageService;
 
+    @Autowired
+    private CompendioStorageService compendioStorageService;
+    
 
-
+      
+    public void criarCompendio() {
+    	System.out.println("Criar compêndio");
+    	System.out.println(this.listaArquivosSelecionados);
+    	System.out.println(this.nomeCompendio);
+    	
+    	Compendio novoCompendio = compendioStorageService.storeCompendio(this.nomeCompendio, this.listaArquivosSelecionados);
+    	for (DBFile dbFile : listaArquivosSelecionados) {
+			dbFile.setCompendio(novoCompendio);
+		}
+    	
+    	dbFileStorageService.editaMultiplosFiles(this.listaArquivosSelecionados);
+    	
+    	
+    	FacesUtil.addMsgInfo("Compêndo criado com sucesso");
+    }
+    
 
 
     /**
@@ -48,7 +70,7 @@ public class CadastraCompendioView {
      * @return the listaArquivos
      */
     public List<DBFile> getListaArquivos() {
-        return this.dbFileStorageService.getAllFile();
+        return this.dbFileStorageService.getAllFileSemCompendio();
     }
 
     /**

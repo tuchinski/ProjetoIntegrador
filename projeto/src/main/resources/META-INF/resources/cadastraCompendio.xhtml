@@ -7,23 +7,25 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	template="templateSistema.xhtml">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"></link>
+	
 
 
+<h2 style="margin: 5px">Cadastrar novo compêndio</h2>
 
-	<h:panelGrid id="pnlCadCompendio" columns="2">
-
-		<p:outputLabel value="Codigo: " />
-		<p:inputText size="20" readonly="true" />
-
-		<p:outputLabel value="Nome Compêndio: " />
-		<p:inputText maxlength="50" size="10"
-			value="#{cadastraCompendioView.nomeCompendio}" />
-
-
-	</h:panelGrid>
 
 	<h:form id="formNovoCompendio">
+		
+		<h:panelGrid id="pnlCadCompendio" columns="2">
+		
+			<p:outputLabel value="Codigo: " />
+			<p:inputText size="20" readonly="true" />
 
+			<p:outputLabel value="Nome Compêndio: " />
+			<p:inputText maxlength="50" size="20" value="#{cadastraCompendioView.nomeCompendio}" />
+
+	</h:panelGrid>
+		
 		<p:dataTable id="dtCriaCompendio" emptyMessage="Nenhum documento sem Compêndio encontrado" 
 		var="arquivo" value="#{cadastraCompendioView.listaArquivos}"  rowKey="#{arquivo.file_id}"
 			 selection="#{cadastraCompendioView.listaArquivosSelecionados}" rows="8" paginator="true"  style="margin-bottom:0" >
@@ -43,6 +45,10 @@
 			</p:column> 
 			
 		</p:dataTable> 
+		
+		 <p:commandButton actionListener="#{cadastraCompendioView.criarCompendio}" 
+		  update=":msgGlobal :formNovoCompendio"  icon="fa fa-plus" value="Criar Compêndio"/>
+		 
 
 	</h:form>
 

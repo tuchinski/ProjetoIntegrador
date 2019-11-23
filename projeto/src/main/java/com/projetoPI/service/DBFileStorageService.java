@@ -42,6 +42,12 @@ public class DBFileStorageService {
 		dbFileRepository.save(novoArquivo);
 	}
 	
+	public void editaMultiplosFiles(List<DBFile> arquivos) {
+		for (DBFile dbFile : arquivos) {
+			this.editaFile(dbFile);
+		}
+	}
+	
 	public List<DBFile> getAllFile() {
 		return dbFileRepository.findAll();
 	}
@@ -62,6 +68,6 @@ public class DBFileStorageService {
 	}
 	
 	public List<DBFile> getAllFileSemCompendio(){
-		return null;
+		return dbFileRepository.findByCompendio(null);
 	}
 }

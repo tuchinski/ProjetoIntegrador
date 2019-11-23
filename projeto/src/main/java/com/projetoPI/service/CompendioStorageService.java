@@ -3,12 +3,14 @@ package com.projetoPI.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.projetoPI.exeption.MyFileNotFoundException;
 import com.projetoPI.model.Compendio;
 import com.projetoPI.model.DBFile;
 import com.projetoPI.repository.CompendioRepository;
 
+@Service
 public class CompendioStorageService {
 
 	@Autowired
