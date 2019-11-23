@@ -21,9 +21,17 @@
 
 
 	<p:layout fullPage="true">
-		<p:layoutUnit position="north" header="Sobe arquivo"></p:layoutUnit>
+		
+		<p:layoutUnit position="north" header="Sobe arquivo">
+					<h:form onsubmit="this.action='#{request.contextPath}/logout';"
+			class="logout-form">
+			<p:commandButton value="Logout" ajax="false" />
+		</h:form>
+		
+		</p:layoutUnit>
 
 		<p:layoutUnit position="west" header="menu" size="230">
+		
 			<h:form>
 				<p:panelMenu>
 					<p:submenu label="Home">
