@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-@Entity
+@Entity(name = "Compendio")
 @Table(name = "compendio")
 public class Compendio {
 	@Id
