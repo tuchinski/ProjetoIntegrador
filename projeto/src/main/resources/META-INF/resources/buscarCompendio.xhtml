@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	template="templateSistema.xhtml">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"></link>
+
+Buscar compendio
+
+	<h:form id="dtbucaCompendio">
+		<p:dataTable emptyMessage="Nenhum compêndio encontrado"
+			var="compendio" value="#{buscaCompendioView.compendios}" rows="8"
+			paginator="true">
+
+
+			<p:column headerText="Código">
+				<h:outputText value="#{compendio.id}" />
+			</p:column>
+
+			<p:column headerText="Nome">
+				<h:outputText value="#{compendio.nome}" />
+			</p:column>
+
+		</p:dataTable>
+	</h:form>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+
+	<h:form id="form">
+
+		<p:treeTable value="#{buscaCompendioView.raiz}" var="node">
+			<p:column headerText="Nome">
+				<h:outputText value="#{node.nome}" />
+			</p:column>
+
+			<p:column headerText="Tamanho">
+				<h:outputText value="#{node.tamanho}" />
+			</p:column>
+
+			<p:column headerText="Tipo">
+				<h:outputText value="#{node.tipo}" />
+			</p:column>
+
+			<p:column style="width:24px">
+				<p:commandLink update="form"
+					title="View Detail"
+					styleClass="fa fa-download" oncomplete="#{buscaCompendioView.testa()}">
+					<f:setPropertyActionListener value="#{node}"
+						target="#{buscaCompendioView.selectedDocument}" />
+				</p:commandLink>
+			</p:column>
+
+		</p:treeTable>
+
+	</h:form>
+
+</ui:decorate>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
