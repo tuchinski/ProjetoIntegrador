@@ -10,8 +10,8 @@ import org.springframework.util.StringUtils;
 import com.projetoPI.exeption.FileStorageException;
 import com.projetoPI.exeption.MyFileNotFoundException;
 import com.projetoPI.model.Categoria;
+import com.projetoPI.model.Compendio;
 import com.projetoPI.model.DBFile;
-import com.projetoPI.repository.CategoriaRepository;
 import com.projetoPI.repository.DBFileRepository;
 
 @Service
@@ -69,5 +69,9 @@ public class DBFileStorageService {
 	
 	public List<DBFile> getAllFileSemCompendio(){
 		return dbFileRepository.findByCompendio(null);
+	}
+	
+	public List<DBFile>findByCompendio(Compendio c){
+		return dbFileRepository.findByCompendio(c);
 	}
 }
