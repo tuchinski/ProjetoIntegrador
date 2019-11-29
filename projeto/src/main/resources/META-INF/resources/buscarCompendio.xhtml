@@ -10,7 +10,7 @@
 		href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
 		rel="stylesheet"></link>
 
-Buscar compendio
+	<h2>Compêndios Publicados</h2>
 
 	<p:dialog header="Documentos Compêndio" id="dialog-modal-mostraDocsCompendio"
 		widgetVar="dialog-modal-mostraDocsCompendio" modal="false" height="400px"
@@ -37,7 +37,7 @@ Buscar compendio
 			<p:column style="width:35px">
 				<p:commandButton icon="ui-icon-folder-open" title="Abrir Compêndio"
 					ajax="true"
-					actionListener="#{buscaCompendioView.testa(compendio)}"
+					actionListener="#{buscaCompendioView.mostraDocsCompendio(compendio)}"
 					update="dtbuscaCompendio mostraDocsCompendio" 
 					oncomplete="PF('dialog-modal-mostraDocsCompendio').show();"
 					/>

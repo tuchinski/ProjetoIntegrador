@@ -8,15 +8,62 @@
 
 
 <h:form id="mostraDocsCompendio">
-	<p:dataTable emptyMessage="Nenhum registro encontrado"
-		var="doc" value="#{buscaCompendioView.documentosCompendio}" rows="8"
-		paginator="true">
-		
+	<p:dataTable emptyMessage="Nenhum registro encontrado" var="doc"
+		value="#{buscaCompendioView.documentosCompendio}" rows="8"
+		selectionMode="single" rowKey="#{doc.file_id}" paginator="true">
+
+		<p:ajax event="rowSelect" listener="#{buscaCompendioView.onRowSelect}"
+			oncomplete="PF('dlg1').show()" />
+
 		<p:column headerText="Nome">
-			<h:outputLabel value="#{doc.file_name}"/>
+			<h:outputLabel value="#{doc.file_name}" />
 		</p:column>
+		
+		<p:column headerText="Categoria">
+			<h:outputLabel value="#{doc.fileCategoria}"  />
+		</p:column>
+		
+		
 
 	</p:dataTable>
+
+	<p:dialog header="Download" widgetVar="dlg1" modal="false">
+		<h:form id="form">
+
+			<p:messages id="msgs" />
+
+			<h:panelGrid columns="1" cellpadding="5">
+
+				<p:media value="#{buscaCompendioView.streamedContent}" player="pdf"
+					width="600px" height="300px">
+					<f:param name="id"
+						value="#{buscaCompendioView.generateRandomIdForNotCaching()}" />
+				</p:media>
+
+				<p:commandButton value="download" ajax="false"
+					onclick="PrimeFaces.monitorDownload(startOffer, stopOffer);">
+					<p:fileDownload value="#{buscaCompendioView.streamedContent}" />
+				</p:commandButton>
+
+			</h:panelGrid>
+
+		</h:form>
+	</p:dialog>
+
+	<h:form>
+		<p:remoteCommand name="refreshStreamOffer"
+			actionListener="#{formView.refreshStream()}" />
+	</h:form>
+
+	<script type="text/javascript">
+		function startOffer() {
+			refreshStreamOffer();
+		}
+
+		function stopOffer() {
+			refreshStreamOffer();
+		}
+	</script>
 
 </h:form>
 

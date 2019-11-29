@@ -28,7 +28,7 @@ public class Compendio {
 	@NotNull
 	private String nome;
 	
-	@OneToMany(mappedBy = "compendio", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER )
+	@OneToMany(mappedBy = "compendio", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY )
 	List<DBFile> listaArquivos;
 	
 	@CreationTimestamp
