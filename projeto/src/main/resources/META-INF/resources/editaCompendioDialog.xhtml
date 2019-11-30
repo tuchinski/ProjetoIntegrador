@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+<h:form id="dtEditaCompendioDialog">
+
+	<p:outputLabel value="Nome Compêndio: " />
+	<p:inputText maxlength="50" size="20"
+		value="#{editaCompendioView.selectedCompendio.nome}" />
+
+	<br />
+
+	<p:dataTable emptyMessage="Nenhum registro encontrado" var="doc"
+		value="#{editaCompendioView.documentosCompendio}" rows="8"
+		paginator="true">
+
+		<p:column headerText="Nome">
+			<h:outputLabel value="#{doc.file_name}" />
+		</p:column>
+
+		<p:column headerText="Categoria">
+			<h:outputLabel value="#{doc.fileCategoria}" />
+		</p:column>
+
+		<p:column style="width: 15%">
+			<p:commandButton id="commandButton-removeDoc" icon="ui-icon-closethick"
+			 actionListener="#{editaCompendioView.removeDocCompendio(doc)}" update="dtEditaCompendioDialog" >
+				<p:confirm header="Remover Documento" message="Confirmar Remoção?" icon=" ui-icon-notice" />
+			</p:commandButton>
+		</p:column>
+
+	</p:dataTable>
+	
+	<p:commandButton id="editaCompendio"  value="Confirmar Edição" 
+					icon="ui-icon-check" actionListener="#{editaCompendioView.editaCompendio}"
+					oncomplete="PF('dialog-modal-editarCompendio').hide();"
+					update="dtEditaCompendio">
+	
+	</p:commandButton>
+
+	<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+		<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+		<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-closethick" />
+	</p:confirmDialog>
+
+
+
+</h:form>
+
+</html>
