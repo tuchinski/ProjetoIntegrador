@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Sobe Arquivo</title>
+	</h:head>
+	
+	<h:body>
+	
+		<h:form prependId="false">
+		
+			<p:toolbar>
+				<f:facet name="left">
+					<h:outputText value="Autenticação">
+					</h:outputText>
+				</f:facet>
+			</p:toolbar>
+	
+			<h:panelGrid columns="2">
+			
+				<p:outputLabel value="Login" />
+				<p:inputText id="username" placeholder="usuario" size="20" />
+	
+				<p:outputLabel value="Senha" />
+				<p:password  id="password" maxlength="8" size="10" />
+	
+			</h:panelGrid>
+	
+			<h:panelGrid>
+				<p:commandButton value="Entrar" ajax="false"/>
+	
+			</h:panelGrid>
+	
+	
+	
+		</h:form>
+	
+	</h:body>
+
+</html>

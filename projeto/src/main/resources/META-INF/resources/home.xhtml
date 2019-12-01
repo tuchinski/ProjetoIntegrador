@@ -5,9 +5,21 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/tags"
 	template="templateSistema.xhtml">
 
 	<h2>Documentos Publicados</h2>
+	
+	<div class="auth-div">
+		<sec:authorize access="hasRole('ROLE_USER')">
+			<p:outputLabel value="user role"/>		
+		</sec:authorize>
+		
+		<sec:authorize access="hasRole('ROLE_ADMIN')">
+			<p:outputLabel value="admin role"/>		
+		</sec:authorize>
+			
+	</div>
 
 	<p:dataTable var="arquivo" value="#{homeView.arquivos}" emptyMessage="Sem documentos publicados"
 		selectionMode="single" rowKey="#{arquivo.file_id}" style="width:75%">
