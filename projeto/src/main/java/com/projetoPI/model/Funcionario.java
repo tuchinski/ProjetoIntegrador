@@ -70,7 +70,7 @@ public class Funcionario implements UserDetails{
 		super();
 	}
 	public Funcionario(String rG, @NotNull String cPF, @NotNull String nomeFuncionario, String sexo, String telefone,
-			String e_mail, String endereco, String setor, String cargo, String senha) {
+			String e_mail, String endereco, String setor, String cargo, String senha, List<Role> role) {
 		super();
 		this.RG = rG;
 		this.CPF = cPF;
@@ -82,6 +82,7 @@ public class Funcionario implements UserDetails{
 		this.setor = setor;
 		this.cargo = cargo;
 		this.senha = senha;
+		this.roles = role;
 	}
 //getter&setter
 	public String getRG() {

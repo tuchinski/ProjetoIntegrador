@@ -1,5 +1,6 @@
 package com.projetoPI.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.projetoPI.exeption.MyFileNotFoundException;
 import com.projetoPI.model.Funcionario;
-import com.projetoPI.model.Setor;
+import com.projetoPI.model.Role;
 import com.projetoPI.repository.FuncionarioRepository;
-import com.projetoPI.service.SetorStorageService;
+import com.projetoPI.repository.RoleRepository;
 
 
 @Service
@@ -19,7 +20,11 @@ public class FuncionarioStorageService {
 	@Autowired
 	private FuncionarioRepository funcionarioRepository;
 	
+	@Autowired
 	private SetorStorageService setorservice;
+	
+	@Autowired
+	private RoleRepository roleRepository;
 
 	public Funcionario storeFuncionario(String rg, String cpf, String nomeFuncionario, String sexo, String telefone, String e_mail, String endereco, 
 String setor, String cargo, String senha) {
@@ -37,9 +42,12 @@ String setor, String cargo, String senha) {
 		System.out.println(senha);
 		
 		senha = new BCryptPasswordEncoder().encode(senha);
+		List<Role> roles= new ArrayList<>();
 		
+		roles.add(roleRepository.findById(cargo)
+				.orElseThrow(() -> new MyFileNotFoundException("role nao encontrada")));
 		
-		Funcionario f = new Funcionario(rg, cpf, nomeFuncionario, sexo, telefone, e_mail, endereco, setor, cargo, senha);
+		Funcionario f = new Funcionario(rg, cpf, nomeFuncionario, sexo, telefone, e_mail, endereco, setor, cargo, senha,roles);
 		return funcionarioRepository.save(f);
 	}
 
