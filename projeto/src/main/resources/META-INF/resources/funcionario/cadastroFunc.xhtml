@@ -9,6 +9,7 @@
 	
 
 	<h:form id="frmCadFunc">
+	
 		<p:toolbar>
 			<f:facet name="left">
 				<h:outputText value="Cadastro Funcionario">
@@ -18,51 +19,51 @@
 
 		<h:panelGrid columns="2" id="pnlCadFunc">
 			<p:outputLabel value="Nome: " />
-			<p:inputText size="50" value="#{cadastraFuncionarioView.nomeFuncionario}" />
+			<p:inputText size="50" value="#{cadastraFuncionarioView.nomeFuncionario}" 
+				required="true" requiredMessage="Necessário incluir Nome"  />
 
-			<p:outputLabel value="Sexo:" for="selectOneRadio-sexo"  />
+			<p:outputLabel value="Sexo:" for="selectOneRadio-sexo" />
 			
-			<p:selectOneRadio id="selectOneRadio-sexo" value="#{cadastraFuncionarioView.sexo}">
+			<p:selectOneRadio required="true" requiredMessage="Necessário incluir Sexo" id="selectOneRadio-sexo" value="#{cadastraFuncionarioView.sexo}">
 				<f:selectItem itemLabel="Masculino" itemValue="M" />
 				<f:selectItem itemLabel="Feminino" itemValue="F" />
 
 			</p:selectOneRadio>
 			
-			<p:outputLabel value="RG"/>
-			<p:inputText size="20"  value="#{cadastraFuncionarioView.rg}" />
+			<p:outputLabel value="RG" />
+			<p:inputText size="20" required="true" requiredMessage="Necessário incluir RG" value="#{cadastraFuncionarioView.rg}" />
 			
-			<p:outputLabel value="CPF"  />
-			<p:inputMask size="20" mask="999.999.999-99" value="#{cadastraFuncionarioView.cpf}"/>
+			<p:outputLabel value="CPF"/>
+			<p:inputMask size="20" required="true" requiredMessage="Necessário incluir CPF" mask="999.999.999-99" value="#{cadastraFuncionarioView.cpf}"/>
 			
 			<p:outputLabel value="Telefone"/>
-			<p:inputText size="20"   value="#{cadastraFuncionarioView.telefone}"/>
+			<p:inputText size="20" required="true" requiredMessage="Necessário incluir Telefone" value="#{cadastraFuncionarioView.telefone}"/>
 			
 			<p:outputLabel value="E-mail"/>
-			<p:inputText size="50"   value="#{cadastraFuncionarioView.e_mail}"/>
+			<p:inputText size="50" required="true" requiredMessage="Necessário incluir email" value="#{cadastraFuncionarioView.e_mail}"/>
 			
 			<p:outputLabel value="Endereço"/>
-			<p:inputText size="50"   value="#{cadastraFuncionarioView.endereco}"/>
+			<p:inputText size="50" required="true" requiredMessage="Necessário incluir Endereço" value="#{cadastraFuncionarioView.endereco}"/>
 			
 			
 
 			<p:outputLabel value="Setor" />
-			<p:selectOneMenu id="setor" value="#{cadastraFuncionarioView.setor}" converter="#{setorConverter}" >
-				<!-- converter="#{categoriaConverter}" -->
-				<f:selectItems value="#{cadastraFuncionarioView.setores}" var="c" />
+			<p:selectOneMenu id="setor" required="true" requiredMessage="Necessário incluir Setor" value="#{cadastraFuncionarioView.setor}"  >
+				<f:selectItems value="#{cadastraFuncionarioView.setores}" var="c" itemLabel="#{c} -> #{c.setorDepartamento.nome_departamento}" />
 			</p:selectOneMenu>
 			
 			<p:outputLabel value="Cargo(Permissão)"/>
-			<p:selectOneMenu value="#{cadastraFuncionarioView.cargo}">				
+			<p:selectOneMenu required="true" requiredMessage="Necessário incluir Cargo" value="#{cadastraFuncionarioView.cargo}">				
 				
-				<f:selectItem itemLabel="Funcionario"  itemValue="func"/>
-				<f:selectItem itemLabel="Gerente Setor"  itemValue="gerenteSet" />
-				<f:selectItem itemLabel="Gerente Departamento"  itemValue="gerenteDep" />
-				<f:selectItem itemLabel="Chefe Departamento"  itemValue="chefeDep" />
-
+				<f:selectItem itemLabel="Funcionario"  itemValue="ROLE_FUNCIONARIO"/>
+				<f:selectItem itemLabel="Gerente Setor"  itemValue="ROLE_GERENTE" />
+				<f:selectItem itemLabel="Gerente Departamento"  itemValue="ROLE_GERENTE" />
+				<f:selectItem itemLabel="Chefe Departamento"  itemValue="ROLE_CHEFEDEPTO" />
+				<f:selectItem itemLabel="Chefe Departamento"  itemValue="ROLE_DIRETOR" />
 			</p:selectOneMenu>
 			
 			<p:outputLabel value="Senha"/>
-			<p:password maxlength="8" size="10"  value="#{cadastraFuncionarioView.senha}"/>
+			<p:password required="true" maxlength="8" size="10" requiredMessage="Necessário incluir Senha" value="#{cadastraFuncionarioView.senha}"/>
 
 
 		</h:panelGrid>
@@ -70,9 +71,8 @@
 		
 
 		<h:panelGrid columns="2">
-			<p:commandButton value="Salvar"
-			actionListener="#{cadastraFuncionarioView.salvaFuncionario}"
-			/>
+			<p:commandButton value="Salvar" validateClient="true"
+			actionListener="#{cadastraFuncionarioView.salvaFuncionario}" update="frmCadFunc"/>
 							
 			<p:commandButton value="Buscar" action="buscarFunc.xhtml?faces-redirect=true"/>
 

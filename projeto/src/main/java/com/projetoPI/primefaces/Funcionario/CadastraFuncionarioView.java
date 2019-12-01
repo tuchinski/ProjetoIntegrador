@@ -248,16 +248,16 @@ public class CadastraFuncionarioView {
 
 
 	public void salvaFuncionario() {
-		System.out.println(this.rg);
-		System.out.println(this.cpf);
-		System.out.println(this.nomeFuncionario);
-		System.out.println(this.sexo);
-		System.out.println(this.telefone);
-		System.out.println(this.e_mail);
-		System.out.println(this.endereco);
+//		System.out.println(this.rg);
+//		System.out.println(this.cpf);
+//		System.out.println(this.nomeFuncionario);
+//		System.out.println(this.sexo);
+//		System.out.println(this.telefone);
+//		System.out.println(this.e_mail);
+//		System.out.println(this.endereco);
 		System.out.println(this.setor);
-		System.out.println(this.cargo);
-		System.out.println(this.senha);
+//		System.out.println(this.cargo);
+//		System.out.println(this.senha);
 //		this.setores=this.getSetores();
 //		System.out.println(this.setores.get(0).getNomeSetor());
 //		Setor setorClass = this.setorStorageService.buscarSetorPorNome(setor);
@@ -271,16 +271,16 @@ public class CadastraFuncionarioView {
 			funcionarioStorageService.storeFuncionario(rg, cpf, nomeFuncionario, sexo, telefone, e_mail, endereco, setor, cargo, senha);
 			FacesUtil.addMsgInfo("Funcionario Salvo com Sucesso");
 		}
-		this.setRg("");
-		this.setCpf("");
-		this.setNomeFuncionario("");
-		this.setSexo("");
-		this.setTelefone("");
-		this.setE_mail("");
-		this.setEndereco("");
-		this.setSetor("");
-		this.setCargo("");
-		this.setSenha("");
+//		this.setRg("");
+//		this.setCpf("");
+//		this.setNomeFuncionario("");
+//		this.setSexo("");
+//		this.setTelefone("");
+//		this.setE_mail("");
+//		this.setEndereco("");
+//		this.setSetor("");
+//		this.setCargo("");
+//		this.setSenha("");
 	}
 	
 	
