@@ -23,13 +23,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 //		        .permitAll().anyRequest().authenticated();
 		    
 		    http.authorizeRequests()
-		    .mvcMatchers("/cadastroFunc.xhtml").hasRole("ADMIN")
-		    .mvcMatchers("/cadastraCompendio.xhtml").hasRole("ADMIN");
+		    .mvcMatchers("/funcionario/cadastroFunc.xhtml").hasRole("ADMIN")
+		    .mvcMatchers("/compendio/*").hasRole("ADMIN");
 		    
 		    
 		    // login
 		    http.formLogin().loginPage("/login.xhtml").permitAll()
-		        .failureUrl("/login.xhtml?error=true").defaultSuccessUrl("/buscarCompendio.xhtml").and().
+		        .failureUrl("/login.xhtml?error=true").defaultSuccessUrl("/paginaPrincipal/buscarCompendio.xhtml").and().
 		        logout().logoutSuccessUrl("/login.xhtml");
 		    
 		    // not needed as JSF 2.2 is implicitly protected against CSRF

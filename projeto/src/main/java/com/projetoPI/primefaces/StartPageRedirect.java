@@ -11,7 +11,7 @@ public class StartPageRedirect implements WebMvcConfigurer{
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/")
-		.setViewName("forward:/buscarCompendio.xhtml");
+		.setViewName("forward:/paginaPrincipal/buscarCompendio.xhtml");
 		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 	}
 }
