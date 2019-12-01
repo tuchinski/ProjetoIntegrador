@@ -47,8 +47,27 @@ public class SetorStorageService {
 	
 	public void deleteSetor(Setor deletedSetor) {
 		repository.delete(deletedSetor);
+		
 	}
 	
+	public Setor buscarSetorPorNome(String nome)
+	{
+		
+		List<Setor> setores = repository.findAll();
+		System.out.println(setores.get(0).getNomeSetor());
+         for(int i = 0; i< setores.size(); i++) 
+         {
+        	 System.out.println(setores.get(i).getNomeSetor());
+        	 if(setores.get(i).getNomeSetor().equals(nome))
+        	 {
+        		 System.out.println("qqq");
+        		 System.out.println(setores.get(i).getNomeSetor());
+        		 
+        		 return setores.get(i);
+        	 }
+         }
+		return null;
+	}
 	/*
 	 * Deleta o setor, recebendo como parâmetro, o ID do setor a ser removido
 	 * @param Long idSetor

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	template="templateSistema.xhtml">
+	<link
+		href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+		rel="stylesheet"></link>
+
+	<h2>Editar Compêndio</h2>
+
+	<p:dialog header="Compêndio" id="dialog-modal-editarCompendio"
+		widgetVar="dialog-modal-editarCompendio" modal="false" height="400px"
+		width="550px">
+
+		<ui:include src="editaCompendioDialog.xhtml" />
+
+	</p:dialog>
+
+	<h:form id="dtEditaCompendio">
+		<p:dataTable emptyMessage="Nenhum compêndio encontrado"
+			var="compendio" value="#{editaCompendioView.compendios}" rows="8"
+			paginator="true">
+
+
+			<p:column headerText="Código" style="width: 25%">
+				<h:outputText value="#{compendio.id}" />
+			</p:column>
+
+			<p:column headerText="Nome">
+				<h:outputText value="#{compendio.nome}" />
+			</p:column>
+
+			<p:column style="width:35px">
+				<p:commandButton icon="ui-icon-pencil" title="Edita Compêndio"
+					ajax="true"
+					actionListener="#{editaCompendioView.mostraDocsCompendio(compendio)}"
+					update="dtEditaCompendio dtEditaCompendioDialog" 
+					oncomplete="PF('dialog-modal-editarCompendio').show();"
+					/>
+			</p:column>
+			
+			<p:column  style="width:35px">
+				<p:commandButton icon="ui-icon-closethick" title="Remove Compendio"
+					ajax="true"
+					actionListener="#{editaCompendioView.removeCompendio(compendio)}"
+					update="dtEditaCompendio" 
+					>
+					<p:confirm header="REMOVER COMPÊNDIO" message="Confirmar Remoção do Compêndio?" icon=" ui-icon-notice" />
+					
+					</p:commandButton>
+			</p:column>
+
+		</p:dataTable>
+		
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+			<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-closethick" />
+		</p:confirmDialog>
+	</h:form>
+
+
+</ui:decorate>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

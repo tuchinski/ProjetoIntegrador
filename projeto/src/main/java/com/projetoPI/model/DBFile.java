@@ -57,6 +57,10 @@ public class DBFile {
 	@JoinColumn(name = "categoria_id")
 	@NotNull
 	private Categoria fileCategoria;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "compendio_id")
+	private Compendio compendio;
 
 	
 //////CONSTRUTORES//////////////////////////	
@@ -172,6 +176,15 @@ public class DBFile {
 	public void setUpdateDateTime(LocalDateTime updateDateTime) {
 		this.updateDateTime = updateDateTime;
 	}
+
+	public Compendio getCompendio() {
+		return compendio;
+	}
+
+	public void setCompendio(Compendio compendio) {
+		this.compendio = compendio;
+	}
+
 	
 	
 	

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	template="templateSistema.xhtml">
+	<link
+		href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+		rel="stylesheet"></link>
+
+	<h2>Compêndios Publicados</h2>
+
+	<p:dialog header="Documentos Compêndio" id="dialog-modal-mostraDocsCompendio"
+		widgetVar="dialog-modal-mostraDocsCompendio" modal="false" height="400px"
+		width="550px">
+
+		<ui:include src="mostraDocsCompendio.xhtml" />
+
+	</p:dialog>
+
+	<h:form id="dtbuscaCompendio">
+		<p:dataTable emptyMessage="Nenhum compêndio encontrado"
+			var="compendio" value="#{buscaCompendioView.compendios}" rows="8"
+			paginator="true">
+
+
+			<p:column headerText="Código">
+				<h:outputText value="#{compendio.id}" />
+			</p:column>
+
+			<p:column headerText="Nome">
+				<h:outputText value="#{compendio.nome}" />
+			</p:column>
+
+			<p:column style="width:35px">
+				<p:commandButton icon="ui-icon-folder-open" title="Abrir Compêndio"
+					ajax="true"
+					actionListener="#{buscaCompendioView.mostraDocsCompendio(compendio)}"
+					update="dtbuscaCompendio mostraDocsCompendio" 
+					oncomplete="PF('dialog-modal-mostraDocsCompendio').show();"
+					/>
+			</p:column>
+
+		</p:dataTable>
+	</h:form>
+
+
+</ui:decorate>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@ public class Setor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY )
 //	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	@Column(name = "setor_id")
-	private	long setor_id;
+	private	String setor_id;
 	
 	@NotNull
 	private String nomeSetor;
@@ -31,7 +31,7 @@ public class Setor {
 		super();
 	}
 
-	public Setor(long setor_id, String nomeSetor) {
+	public Setor(String setor_id, String nomeSetor) {
 		super();
 		this.setor_id = setor_id;
 		this.nomeSetor = nomeSetor;
@@ -55,11 +55,11 @@ public class Setor {
 	
 	}
 
-	public long getSetor_id() {
-		return setor_id;
+	public String getSetor_id() {
+		return this.setor_id;
 	}
-
-	public void setSetor_id(long setor_id) {
+	
+	public void setSetor_id(String setor_id) {
 		this.setor_id = setor_id;
 	}
 
@@ -78,6 +78,10 @@ public class Setor {
 	public void setSetorDepartamento(Departamento setorDepartamento) {
 		this.setorDepartamento = setorDepartamento;
 	}	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.nomeSetor;
+	}
 	
 }
