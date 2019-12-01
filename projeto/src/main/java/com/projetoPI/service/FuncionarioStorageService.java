@@ -3,6 +3,7 @@ package com.projetoPI.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.projetoPI.exeption.MyFileNotFoundException;
@@ -35,14 +36,17 @@ String setor, String cargo, String senha) {
 		System.out.println(cargo);
 		System.out.println(senha);
 		
-		
+		senha = new BCryptPasswordEncoder().encode(senha);
 		
 		
 		Funcionario f = new Funcionario(rg, cpf, nomeFuncionario, sexo, telefone, e_mail, endereco, setor, cargo, senha);
 		return funcionarioRepository.save(f);
 	}
 
-	
+	public Funcionario findByLogin(String id) {
+		return funcionarioRepository.findById(id)
+				.orElseThrow(() -> new MyFileNotFoundException("Não achei o funcionario com o ID " + id));
+	}
 
 	public List<Funcionario> getAllFuncionario() {
 		return funcionarioRepository.findAll();

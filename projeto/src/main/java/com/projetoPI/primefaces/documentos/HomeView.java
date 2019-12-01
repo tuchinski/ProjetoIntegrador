@@ -3,8 +3,6 @@ package com.projetoPI.primefaces.documentos;
 
 
 import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -15,6 +13,8 @@ import org.primefaces.event.SelectEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.projetoPI.model.DBFile;
 import com.projetoPI.service.DBFileStorageService;
@@ -26,6 +26,7 @@ public class HomeView {
 	private DBFile arquivoSelecionado;
 	
 	private List<DBFile> arquivos;
+	
 	
 	@Autowired
 	private DBFileStorageService dbFileStorageService;
@@ -65,7 +66,15 @@ public class HomeView {
 	public List<DBFile> getArquivos() {
 //		return dbFileStorageService.getAllFile();
 		System.out.println("heey");
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();	
+		
+		//pega o nome do usuário
+		System.out.println("Usuário: " + ((UserDetails)principal).getUsername());
+		
 		return dbFileStorageService.getAllFilePublicado();
+		
+
 	}
 
 	public void setArquivos(List<DBFile> arquivos) {

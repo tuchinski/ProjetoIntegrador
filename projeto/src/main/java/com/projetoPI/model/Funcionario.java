@@ -1,21 +1,36 @@
 package com.projetoPI.model;
 
+import java.util.Collection;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.ManyToOne;
 
 @Entity(name = "Funcionario")
 @Table(name = "funcionario")
-public class Funcionario {
-	@Id
+public class Funcionario implements UserDetails{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3695737069009125654L;
+
+	@NotNull
 	private String RG;
 	
-	
+	@Id
 	@NotNull
 	@Column(unique=true)
 	private String CPF;
@@ -23,12 +38,16 @@ public class Funcionario {
 	@NotNull
 	private String nomeFuncionario;
 	
+	@NotNull
 	private String sexo;
 	
+	@NotNull
 	private  String telefone;
 	
+	@NotNull
 	private String E_mail;
 	
+	@NotNull
 	private String endereco;
 	
 	
@@ -36,7 +55,16 @@ public class Funcionario {
 	
 	private String cargo;
 	
+	@NotNull
 	private String senha;
+	
+	@NotNull 
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(	name = "funcionarios_roles", 
+				joinColumns = @JoinColumn(name = "funcionario_id", referencedColumnName = "CPF"),
+				inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "nomeRole"))
+	private List<Role> roles;
+	
 //constructor
 	public Funcionario() {
 		super();
@@ -134,6 +162,48 @@ public class Funcionario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public List<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return (Collection<? extends GrantedAuthority>) this.roles;
+	}
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return this.senha;
+	}
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return this.CPF;
+	}
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	
