@@ -4,10 +4,24 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/tags">
 	
 <ui:composition>
-
+	<div class="auth-div">
+	
+		<sec:authorize access="hasAnyRole('ROLE_USER')">
+			<p:outputLabel value="user role"/>		
+		</sec:authorize>
+		
+		<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
+			<p:outputLabel value="admin role"/>		
+		</sec:authorize>
+			
+		<sec:authorize access="hasAnyRole('ROLE_DIRETOR')">
+			<p:outputLabel value="diretor role"/>		
+		</sec:authorize>
+	</div>
 	<h:form>
 		<p:panelMenu>
 			<p:submenu label="Home">
@@ -16,10 +30,12 @@
 
 			<p:submenu label="Arquivo">
 				<p:menuitem value="Upload Novo Documento" url="/documentos/documento.xhtml" />
-				<p:menuitem value="Validar Documento"
-					url="/documentos/validaDocumento.xhtml" />
-				<p:menuitem value="Publicar Documento"
-					url="/documentos/publicaDocumento.xhtml" />
+				<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_DIRETOR','ROLE_CHEFEDEPARTAMENTO', 'ROLE_GERENTE')">
+					<p:menuitem value="Validar Documento"
+						url="/documentos/validaDocumento.xhtml" />
+					<p:menuitem value="Publicar Documento"
+						url="/documentos/publicaDocumento.xhtml" />
+				</sec:authorize>	
 				<p:menuitem value="Documentos Rejeitados"
 					url="/documentos/documentosRejeitados.xhtml" />
 
@@ -30,7 +46,7 @@
 					<p:menuitem value="Novo" url="/categoria/cadastroCategoria.xhtml" />
 					<p:menuitem value="Buscar" url="/categoria/buscarCategoria.xhtml" />
 				</p:submenu>
-
+			<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_DIRETOR','ROLE_CHEFEDEPARTAMENTO', 'ROLE_GERENTE')">
 				<p:submenu label="Setor">
 					<p:menuitem value="Novo" url="/setor/cadastroSetor.xhtml" />
 					<p:menuitem value="Buscar" url="/setor/buscarSetor.xhtml" />
@@ -48,13 +64,15 @@
 					<p:menuitem value="Buscar" url="/funcionario/buscarFunc.xhtml" />
 
 				</p:submenu>
+			</sec:authorize>
 
 			</p:submenu>
-
+			<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_DIRETOR')">
 			<p:submenu label="Compêndio">
 				<p:menuitem value="Novo Compêndio" url="/compendio/cadastraCompendio.xhtml" />
 				<p:menuitem value="Editar Compêndio" url="/compendio/editarCompendio.xhtml" />
 			</p:submenu>
+			</sec:authorize>
 
 
 		</p:panelMenu>
