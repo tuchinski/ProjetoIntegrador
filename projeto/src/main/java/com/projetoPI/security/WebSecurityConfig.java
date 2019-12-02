@@ -19,16 +19,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		  protected void configure(HttpSecurity http) throws Exception {
 			
 		    // require all requests to be authenticated except for the resources
-//		    http.authorizeRequests().antMatchers("/javax.faces.resource/**")
-//		        .permitAll().anyRequest().authenticated();
+//		    ;
 		    
 		    http.authorizeRequests()
 		    .mvcMatchers("/funcionario/cadastroFunc.xhtml").hasRole("ADMIN")
 		    .mvcMatchers("/compendio/*").hasAnyRole("ADMIN,DIRETOR")
-		    .mvcMatchers("/funcionario/*").hasAnyRole("ADMIN CHEFEDEPTO DIRETOR GERENTE")
-		    .mvcMatchers("/departamento/*").hasAnyRole("ADMIN CHEFEDEPTO DIRETOR GERENTE")
-		    .mvcMatchers("/setor/*").hasAnyRole("ADMIN CHEFEDEPTO DIRETOR GERENTE")
-		    .mvcMatchers("/documentos/validaDocumento.xhtml").hasAnyRole("ADMIN CHEFEDEPTO DIRETOR GERENTE");
+		    .mvcMatchers("/funcionario/*").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE")
+		    .mvcMatchers("/departamento/*").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE")
+		    .mvcMatchers("/setor/*").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE")
+		    .mvcMatchers("/documentos/validaDocumento.xhtml").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE")
+		    .antMatchers("/javax.faces.resource/**").permitAll();
+//	        .permitAll().anyRequest().authenticated();
 		    
 		    
 		    // login

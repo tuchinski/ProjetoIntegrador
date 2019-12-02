@@ -31,6 +31,10 @@
 				</h:outputText>
 			</p:column>
 			
+			<p:column headerText="Criado Por">
+				<h:outputText value="#{arquivo.criadoPor.nomeFuncionario}" />
+			</p:column>
+			
 			<p:column headerText="Validar Documento?">
 				<p:commandButton  icon="ui-icon-check" actionListener="#{validaDocumentoView.validaDocumento(arquivo)}" update="validaDoc">
 					<p:confirm header="VALIDAR DOCUMENTO" message="Confirma Validação do Documento?" icon="ui-icon-info" />

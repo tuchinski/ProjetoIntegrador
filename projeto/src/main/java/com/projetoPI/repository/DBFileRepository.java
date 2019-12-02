@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.projetoPI.model.Compendio;
 import com.projetoPI.model.DBFile;
+import com.projetoPI.model.Funcionario;
 
 
 @Repository
@@ -21,7 +22,7 @@ public interface DBFileRepository extends JpaRepository<DBFile, String>{
 	 * @param rejeitado Verifica se o arquivo foi rejeitado ou não
 	 * @return Lista dos arquivos de acordo com os parâmetros passados
 	 */
-	public List<DBFile> findByIsPublicadoAndIsValidadoAndIsRejeitado(boolean publicado, boolean validado, boolean rejeitado);
+	public List<DBFile> findByIsValidadoAndIsRejeitado(boolean publicado, boolean rejeitado);
 	
 	
 //	exemplo de busca no banco usando query
@@ -37,4 +38,8 @@ public interface DBFileRepository extends JpaRepository<DBFile, String>{
 	public List<DBFile> findByIsRejeitado(boolean isRejeitado);
 	
 	public List<DBFile> findByCompendio(Compendio c);
+	
+	public List<DBFile> findByCompendioAndIsValidado(Compendio c, boolean validado);
+	
+	public List<DBFile> findByIsRejeitadoAndCriadoPor(boolean rejeitado,Funcionario f );
 }

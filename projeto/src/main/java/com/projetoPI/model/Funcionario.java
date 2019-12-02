@@ -3,6 +3,7 @@ package com.projetoPI.model;
 import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -64,6 +66,10 @@ public class Funcionario implements UserDetails{
 				joinColumns = @JoinColumn(name = "funcionario_id", referencedColumnName = "CPF"),
 				inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "nomeRole"))
 	private List<Role> roles;
+	
+	@OneToMany(mappedBy = "criadoPor", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+	private List<DBFile> arquivosPublicados;
+	
 	
 //constructor
 	public Funcionario() {
@@ -206,12 +212,14 @@ public class Funcionario implements UserDetails{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	public List<DBFile> getArquivosPublicados() {
+		return arquivosPublicados;
+	}
+	public void setArquivosPublicados(List<DBFile> arquivosPublicados) {
+		this.arquivosPublicados = arquivosPublicados;
+	}
 	
 	
-	
-	
-	
-	
-	
+
 
 }
