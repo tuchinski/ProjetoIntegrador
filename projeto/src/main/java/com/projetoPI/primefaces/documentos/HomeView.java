@@ -72,7 +72,7 @@ public class HomeView {
 		//pega o nome do usuário
 		System.out.println("Usuário: " + ((UserDetails)principal).getUsername());
 		
-		return dbFileStorageService.getAllFilePublicado();
+		return dbFileStorageService.getAllFileValidado();
 		
 
 	}

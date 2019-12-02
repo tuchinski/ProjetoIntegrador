@@ -40,10 +40,14 @@
 				<h:outputText value="#{arquivo.file_name}" />
 			</p:column> 
 
-			<p:column headerText="Nome" filterBy="#{arquivo.fileCategoria.nomeCategoria}">
+			<p:column headerText="Categoria" filterBy="#{arquivo.fileCategoria.nomeCategoria}">
 				<h:outputText value="#{arquivo.fileCategoria.nomeCategoria}" />
 			</p:column> 
 			
+			<p:column headerText="Criado Por" filterBy="#{arquivo.criadoPor.nomeFuncionario}">
+				<h:outputText value="#{arquivo.criadoPor.nomeFuncionario}" />
+			</p:column>
+			 			
 		</p:dataTable> 
 		
 		 <p:commandButton actionListener="#{cadastraCompendioView.criarCompendio}" 

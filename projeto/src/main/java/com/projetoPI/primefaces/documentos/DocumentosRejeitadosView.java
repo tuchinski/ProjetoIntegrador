@@ -11,6 +11,8 @@ import org.primefaces.event.SelectEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.projetoPI.model.DBFile;
 import com.projetoPI.service.DBFileStorageService;
@@ -21,7 +23,7 @@ public class DocumentosRejeitadosView {
 	private List<DBFile> arquivos;
 
 	private DBFile arquivoSelecionado;
-	
+
 	@Autowired
 	private DBFileStorageService dbFileStorageService;
 
@@ -49,7 +51,7 @@ public class DocumentosRejeitadosView {
 	public void enviaDocumento(DBFile arquivo) {
 //		arquivo.setPublicado(true);
 //		dbFileStorageService.editaFile(arquivo);
-		System.out.println("Reenviou " + arquivo.isPublicado());
+		System.out.println("Reenviou " + arquivo.isValidado());
 	}
 
 	public void excluiDocumento(DBFile arquivo) {
@@ -68,7 +70,12 @@ public class DocumentosRejeitadosView {
 
 	public List<DBFile> getArquivos() {
 		System.out.println("getDocsRejeitados");
-		return dbFileStorageService.getAllFileRejeitado();
+
+		// pega o nome do usuário
+		UserDetails principal = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String nomeUsuario = principal.getUsername();
+		
+		return dbFileStorageService.findAllFileRejeitadoPorFuncionario(nomeUsuario);
 	}
 
 	public void setArquivos(List<DBFile> arquivos) {

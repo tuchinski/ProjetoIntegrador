@@ -1,6 +1,5 @@
 package com.projetoPI.primefaces.documentos;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +11,8 @@ import javax.inject.Named;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.projetoPI.exeption.FileStorageException;
 import com.projetoPI.model.Categoria;
@@ -42,8 +43,11 @@ public class FileUploadView {
         	try {
 				Map<String, String>params =  FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         		String idCategoria = params.get("catGO:category_input");
-        		System.out.println(idCategoria);
-        		dbFileStorageService.storeFile(arq, idCategoria);
+        		
+        		UserDetails principal = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        		System.out.println("Usuário: " + principal);
+        		
+        		dbFileStorageService.storeFile(arq, idCategoria, principal.getUsername());
         		
         		FacesMessage message = new FacesMessage("Succesful", arq.getFileName() + " foi salvo!");
         		FacesContext.getCurrentInstance().addMessage(null, message);
