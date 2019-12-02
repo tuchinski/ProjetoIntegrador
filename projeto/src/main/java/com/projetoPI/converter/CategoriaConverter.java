@@ -25,7 +25,6 @@ public class CategoriaConverter implements Converter<Categoria> {
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Categoria value) {
 		
-		System.out.println("aaaaaaaaaaaa" + value.getId());
 		return value.getId();
 	}
 
