@@ -10,12 +10,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity(name = "Setor")
 @Table(name = "setor")
 public class Setor {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY )
-//	@GenericGenerator(name = "uuid", strategy = "uuid2")
+	// @GeneratedValue(strategy = GenerationType.IDENTITY )
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	@Column(name = "setor_id")
 	private	String setor_id;
 	

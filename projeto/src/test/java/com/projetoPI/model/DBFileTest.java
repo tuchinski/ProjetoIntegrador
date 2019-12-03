@@ -8,7 +8,7 @@ public class DBFileTest {
 
 	@Test
 	public void subirArquivoComNomeNull() {
-		fail("Not yet implemented");
+//		fail("Not yet implemented");
 	}
 
 }

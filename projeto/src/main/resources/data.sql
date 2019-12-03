@@ -4,3 +4,8 @@ insert into role(nome_role) values
 	('ROLE_GERENTE'),
 	('ROLE_FUNCIONARIO'),
 	('ROLE_DIRETOR');
+
+CREATE TABLE TESTE(
+	a INTEGER,
+	b FLOAT
+);

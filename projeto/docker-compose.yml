@@ -1,0 +1,34 @@
+version: '3.7'
+services: 
+    database:
+        image: mysql
+        container_name: database
+        environment: 
+            MYSQL_DATABASE: projPI
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: tuchinski
+            MYSQL_PASSWORD: 123
+        ports: 
+            - "3306:3306"
+        networks: 
+            - banco-backend
+    backend:
+        build:
+            # dockerfile: springboot.dockerfile
+            dockerfile: s2.dockerfile
+            context: .
+        image: tuchinski/springboot_projintegrador
+        container_name: spring_boot
+        environment: 
+            SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/projPI?useSSL=false&allowPublicKeyRetrieval=true
+            SPRING_DATASOURCE_USERNAME: root
+            SPRING_DATASOURCE_PASSWORD: root  
+        ports: 
+            - "8080:8080"           
+        depends_on: 
+            - database
+        networks: 
+            - banco-backend           
+networks:
+    banco-backend:
+        driver: bridge
