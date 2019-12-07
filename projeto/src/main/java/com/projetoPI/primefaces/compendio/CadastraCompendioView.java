@@ -41,8 +41,6 @@ public class CadastraCompendioView {
     	try{
     		novoCompendio = compendioStorageService.storeCompendio(this.nomeCompendio, this.listaArquivosSelecionados);
     	}catch (IllegalArgumentException e) {
-    		System.out.println("asdf");
-    		System.out.println(e);
     		FacesUtil.addMsgInfo(e.getMessage());
     		return;
 		}    	
