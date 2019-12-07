@@ -34,12 +34,14 @@ public class Categoria {
 	
 	public Categoria(String nomeCategoria) {
 		super();
+		if(nomeCategoria == null || nomeCategoria.length() == 0) {
+			throw new IllegalArgumentException("Nome da categoria Vazio!!!!");
+		}
 		this.nomeCategoria = nomeCategoria;
 	}
 
 	public Categoria(String nomeCategoria, List<DBFile> documentos) {
-		super();
-		this.nomeCategoria = nomeCategoria;
+		this(nomeCategoria);
 		this.documentos = documentos;
 	}
 

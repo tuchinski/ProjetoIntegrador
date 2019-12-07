@@ -37,8 +37,16 @@ public class CadastraCompendioView {
     	System.out.println("Criar compêndio");
     	System.out.println(this.listaArquivosSelecionados);
     	System.out.println(this.nomeCompendio);
+    	Compendio novoCompendio = null;
+    	try{
+    		novoCompendio = compendioStorageService.storeCompendio(this.nomeCompendio, this.listaArquivosSelecionados);
+    	}catch (IllegalArgumentException e) {
+    		System.out.println("asdf");
+    		System.out.println(e);
+    		FacesUtil.addMsgInfo(e.getMessage());
+    		return;
+		}    	
     	
-    	Compendio novoCompendio = compendioStorageService.storeCompendio(this.nomeCompendio, this.listaArquivosSelecionados);
     	for (DBFile dbFile : listaArquivosSelecionados) {
 			dbFile.setCompendio(novoCompendio);
 		}
