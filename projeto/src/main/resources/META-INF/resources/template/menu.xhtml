@@ -10,7 +10,11 @@
 <ui:composition>
 	<div class="auth-div">
 	
-		<sec:authorize access="hasAnyRole('ROLE_USER')">
+		<sec:authenticated>
+			<p:outputLabel value="Bem vindo, #{menuView.username}"/>		
+		</sec:authenticated>
+	
+		<!-- <sec:authorize access="hasAnyRole('ROLE_USER')">
 			<p:outputLabel value="user role"/>		
 		</sec:authorize>
 		
@@ -20,7 +24,7 @@
 			
 		<sec:authorize access="hasAnyRole('ROLE_DIRETOR')">
 			<p:outputLabel value="diretor role"/>		
-		</sec:authorize>
+		</sec:authorize> -->
 	</div>
 	<h:form>
 		<p:panelMenu>
@@ -56,7 +60,7 @@
 					<p:menuitem value="Buscar" url="/departamento/buscarDep.xhtml" />
 				</p:submenu>
 
-				<p:submenu label="Funcionario">
+				<p:submenu label="Funcionário">
 					<p:menuitem value="Novo" url="/funcionario/cadastroFunc.xhtml" />
 
 					<p:menuitem value="Buscar" url="/funcionario/buscarFunc.xhtml" />
