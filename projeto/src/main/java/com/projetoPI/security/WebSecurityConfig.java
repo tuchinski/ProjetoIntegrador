@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
@@ -20,6 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			
 		    // require all requests to be authenticated except for the resources
 //		    ;
+					
 		    
 		    http.authorizeRequests()
 		    .mvcMatchers("/funcionario/cadastroFunc.xhtml").hasRole("ADMIN")
@@ -28,7 +30,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		    .mvcMatchers("/departamento/*").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE")
 		    .mvcMatchers("/setor/*").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE")
 		    .mvcMatchers("/documentos/validaDocumento.xhtml").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE")
-		    .antMatchers("/javax.faces.resource/**").permitAll();
+		    .mvcMatchers("/categoria/*").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE,FUNCIONARIO")
+		    .mvcMatchers("/documentos/documento.xhtml").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE,FUNCIONARIO")
+		    .mvcMatchers("/documentos/documentosRejeitados.xhtml").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE,FUNCIONARIO")
+		    .mvcMatchers("/paginaprincipal/buscarCompendio.xhtml").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE,FUNCIONARIO");
+//		    .antMatchers("/javax.faces.resource/**").permitAll();
 //	        .permitAll().anyRequest().authenticated();
 		    
 		    
