@@ -11,9 +11,13 @@ import org.primefaces.event.SelectEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.projetoPI.model.DBFile;
+import com.projetoPI.model.Funcionario;
 import com.projetoPI.service.DBFileStorageService;
+import com.projetoPI.service.FuncionarioStorageService;
 
 @ManagedBean
 @ViewScoped
@@ -22,6 +26,9 @@ public class ValidaDocumentoView {
 	private DBFile arquivoSelecionado;
 
 	private List<DBFile> arquivos;
+	
+	@Autowired
+	private FuncionarioStorageService funcionarioStorageService;
 
 	@Autowired
 	private DBFileStorageService dbFileStorageService;
@@ -50,13 +57,13 @@ public class ValidaDocumentoView {
 	public void validaDocumento(DBFile arquivo) {
 		arquivo.setValidado(true);
 		dbFileStorageService.editaFile(arquivo);
-		System.out.println("Validou " + arquivo.getFile_name());
+//		System.out.println("Validou " + arquivo.getFile_name());
 	}
 
 	public void rejeitaDocumento(DBFile arquivo) {
 		arquivo.setRejeitado(true);
 		dbFileStorageService.editaFile(arquivo);
-		System.out.println("Rejeitou " + arquivo.getFile_name());
+//		System.out.println("Rejeitou " + arquivo.getFile_name());
 	}
 
 /////getters e setters//////////////////////////////
@@ -71,8 +78,16 @@ public class ValidaDocumentoView {
 
 	public List<DBFile> getArquivos() {
 //		return dbFileStorageService.getAllFile();
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Funcionario funcionario = null;
+		if(principal instanceof UserDetails) {
+			String chave = ((UserDetails)principal).getUsername();
+			funcionario = funcionarioStorageService.findByLogin(chave);
+		}
+		
+		
 		System.out.println("getArquivos");
-		return dbFileStorageService.getAllFileParaValidacao();
+		return dbFileStorageService.getAllFileParaValidacaoSetor(funcionario.getSetor());
 	}
 
 	public void setArquivos(List<DBFile> arquivos) {

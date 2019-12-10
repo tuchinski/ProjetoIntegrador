@@ -47,6 +47,10 @@ public class DBFileStorageService {
 		dbFileRepository.save(novoArquivo);
 	}
 	
+	public void removeFile(DBFile arquivo) {
+		dbFileRepository.deleteById(arquivo.getFile_id());
+	}
+	
 	public void editaMultiplosFiles(List<DBFile> arquivos) {
 		for (DBFile dbFile : arquivos) {
 			this.editaFile(dbFile);
@@ -65,6 +69,10 @@ public class DBFileStorageService {
 		return dbFileRepository.findByIsValidadoAndIsRejeitado(false, false);
 	}
 	
+	public List<DBFile> getAllFileParaValidacaoSetor(String nomeSetor){
+		return dbFileRepository.getAllDocumentosParaValidacaoComSetor(nomeSetor);
+		
+	}
 
 	public List<DBFile> getAllFileRejeitado(){
 		return dbFileRepository.findByIsRejeitado(true);

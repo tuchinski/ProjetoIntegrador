@@ -12,35 +12,37 @@
 	</h:head>
 	
 	<h:body>
+		<p:dialog visible="true" width="400"  header="Acessar o Sistema" showHeader="false" modal="true" resizable="false">
+
+			<h:form prependId="false">
 	
-		<h:form prependId="false">
-		
-			<p:toolbar>
-				<f:facet name="left">
-					<h:outputText value="Autenticação">
-					</h:outputText>
-				</f:facet>
-			</p:toolbar>
+				<p:toolbar>
+					<f:facet name="left">
+						<h:outputText value="Autenticação">
+						</h:outputText>
+					</f:facet>
+				</p:toolbar>
 	
-			<h:panelGrid columns="2">
-			
-				<p:outputLabel value="Login" />
-				<p:inputMask id="username" mask="999.999.999-99" placeholder="usuario" size="20" />
+				<h:panelGrid columns="2">
 	
-				<p:outputLabel value="Senha" />
-				<p:password  id="password" maxlength="8" size="10" />
+					<p:outputLabel value="Login" />
+					<p:inputMask id="username" mask="999.999.999-99"
+						placeholder="usuario" size="20" />
 	
-			</h:panelGrid>
+					<p:outputLabel value="Senha" />
+					<p:password id="password" maxlength="8" size="10"  placeholder="senha"/>
 	
-			<h:panelGrid>
-				<p:commandButton value="Entrar" ajax="false"/>
+				</h:panelGrid>
 	
-			</h:panelGrid>
+				<h:panelGrid columns="3" >
+					<p:commandButton value="Entrar" ajax="false"  icon="ui-icon-unlocked" iconPos="right" />
 	
+				</h:panelGrid>
 	
 	
-		</h:form>
 	
+			</h:form>
+		</p:dialog>
 	</h:body>
 
 </html>

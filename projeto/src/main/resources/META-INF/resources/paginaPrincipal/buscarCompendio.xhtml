@@ -34,6 +34,12 @@
 				<h:outputText value="#{compendio.nome}" />
 			</p:column>
 
+			<p:column headerText="Data e Hora Criação" filterBy="{compendio.createDateTime}">
+				<h:outputText value="#{compendio.createDateTime}" >
+					<f:convertDateTime type="localDate" pattern="dd/MM/yyyy HH:MM" />
+				</h:outputText>
+			</p:column>
+			
 			<p:column style="width:35px">
 				<p:commandButton icon="ui-icon-folder-open" title="Abrir Compêndio"
 					ajax="true"
@@ -42,6 +48,7 @@
 					oncomplete="PF('dialog-modal-mostraDocsCompendio').show();"
 					/>
 			</p:column>
+			
 
 		</p:dataTable>
 	</h:form>

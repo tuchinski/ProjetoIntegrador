@@ -73,6 +73,9 @@ public class DBFile {
 
 	public DBFile(String fileName, String fileType, @NotNull byte[] data) {
 		super();
+		if(fileName == null||fileName.length() == 0) {
+			throw new IllegalArgumentException("O nome do documento não pode ser nulo ou vazio");
+		}
 		this.file_name = fileName;
 		this.file_type = fileType;
 		this.data = data;
@@ -82,6 +85,11 @@ public class DBFile {
 
 	public DBFile(String fileName, String fileType, @NotNull byte[] data, Categoria fileCategoria, Funcionario criadoPor) {
 		super();
+		if(fileName == null||fileName.length() == 0) {
+			throw new IllegalArgumentException("O nome do documento não pode ser nulo ou vazio");
+		}else if (fileCategoria == null || fileCategoria.getId() == null){
+			throw new IllegalArgumentException("A categoria do documento não pode ser nulo ou vazio");
+		}
 		this.file_name = fileName;
 		this.file_type = fileType;
 		this.data = data;

@@ -33,6 +33,9 @@ public class Departamento {
 
 	public Departamento(@NotNull String depto) {
 		super();
+		if(depto == null || depto.length()==0) {
+			throw new IllegalArgumentException("Nome do departamento não pode ser vazio");
+		}
 		this.nome_departamento = depto;
 	}
 

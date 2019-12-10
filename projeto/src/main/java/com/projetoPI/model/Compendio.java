@@ -43,6 +43,9 @@ public class Compendio {
 
 	public Compendio(@NotNull String nome, List<DBFile> listaArquivos) {
 		super();
+		if(nome == null || nome.length() == 0) {
+			throw new IllegalArgumentException("Nome do compendio vazio!!");
+		}
 		this.nome = nome;
 		this.listaArquivos = listaArquivos;
 	}

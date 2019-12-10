@@ -31,26 +31,27 @@
 				</h:outputText>
 			</p:column>
 			
-<!-- 			<p:column headerText="Publicar Documento?">
-				<p:commandButton  icon="ui-icon-check" actionListener="#{documentosRejeitadosView.enviaDocumento(arquivo)}" update="publicaDoc">
-					<p:confirm header="REENVIAR DOCUMENTO" message="Confirma publicação do Documento?" icon="ui-icon-info" />
+			<p:column style="width: 35px">
+				<p:commandButton icon="ui-icon-trash" title="Excluir Registro" 
+					update="publicaDoc" actionListener="#{documentosRejeitadosView.excluiDocumento(arquivo)}" >
+				
+					<p:confirm header="Deletar" message="Confirmar Remoção?" icon=" ui-icon-notice" />
+					
 				</p:commandButton>
-				<p:commandButton  icon="ui-icon-closethick" actionListener="#{documentosRejeitadosView.excluiDocumento(arquivo)}" update="publicaDoc">
-					<p:confirm header="EXCLUIR DOCUMENTO" message="Confirma rejeição do Documento?" icon="ui-icon-info" />
-				</p:commandButton>		
 			</p:column>
- --> 
+			
+
 		</p:dataTable>
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+				<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+				<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-closethick" />
+			</p:confirmDialog>
 	
-<!-- 		<p:confirmDialog  global="true" showEffect="fade" hideEffect="fade">
-			<p:commandButton value="Confirmar" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-			<p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-closethick" />
-		</p:confirmDialog> -->
+
 	</h:form>
 	
-	<!-- <p:media value="#{fileCategoria.data}" width="50%" height="300px" player="pdf" id="abrePDF" rendered="true" cache="false" ></p:media> -->
 
-	<p:dialog header="Visualizar" widgetVar="dlg1" modal="false">
+	<p:dialog header="Download" widgetVar="dlg1" modal="false">
 		<h:form id="form">
 
 			<p:messages id="msgs" />

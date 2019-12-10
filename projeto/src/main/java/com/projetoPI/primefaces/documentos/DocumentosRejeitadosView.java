@@ -56,6 +56,7 @@ public class DocumentosRejeitadosView {
 
 	public void excluiDocumento(DBFile arquivo) {
 		System.out.println("Excluiu " + arquivo.getFile_name());
+		dbFileStorageService.removeFile(arquivo);
 	}
 
 /////getters e setters//////////////////////////////
