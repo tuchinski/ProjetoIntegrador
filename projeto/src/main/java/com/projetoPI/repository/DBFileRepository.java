@@ -4,6 +4,7 @@ package com.projetoPI.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.projetoPI.model.Compendio;
@@ -26,12 +27,12 @@ public interface DBFileRepository extends JpaRepository<DBFile, String>{
 	
 	
 //	exemplo de busca no banco usando query
-//	/**
-//	 * @return Lista de Documentos esperando Validação
-//	 */
-//	@Query("SELECT a FROM Arquivo a WHERE a.isPublicado = 0 AND a.isValidado = 1")
-//	public List<DBFile> getAllDocumentosParaPublicacao();
-//	
+	/**
+	 * @return Lista de docs do mesmo setor passado por parâmetro
+	 */
+	@Query("SELECT a FROM Arquivo a, Funcionario f WHERE a.criadoPor = f.CPF AND f.setor = ?1 AND a.isRejeitado = false")
+	public List<DBFile> getAllDocumentosParaValidacaoComSetor(String nomeSetor);
+	
 	/**
 	 * @return Lista dos Documentos rejeitados
 	 */

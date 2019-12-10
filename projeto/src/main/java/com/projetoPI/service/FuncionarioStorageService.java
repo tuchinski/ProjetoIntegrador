@@ -28,18 +28,6 @@ public class FuncionarioStorageService {
 
 	public Funcionario storeFuncionario(String rg, String cpf, String nomeFuncionario, String sexo, String telefone, String e_mail, String endereco, 
 String setor, String cargo, String senha) {
-		//dados
-		System.out.print("service");
-		System.out.println(rg);
-		System.out.println(cpf);
-		System.out.println(nomeFuncionario);
-		System.out.println(sexo);
-		System.out.println(telefone);
-		System.out.println(e_mail);
-		System.out.println(endereco);
-		System.out.println(setor);
-		System.out.println(cargo);
-		System.out.println(senha);
 		
 		senha = new BCryptPasswordEncoder().encode(senha);
 		List<Role> roles= new ArrayList<>();
