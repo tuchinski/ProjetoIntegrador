@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.ui-widget, .ui-widget .ui-widget{
+	font-size: 95%;
+}
+
+body {
+	front-size: 12px;
+	front-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 20px;
+}
