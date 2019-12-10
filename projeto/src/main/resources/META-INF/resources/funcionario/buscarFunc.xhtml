@@ -23,26 +23,34 @@
 	</h:form>
 	
 	<h:form id="formBuscarFunc">
-		<p:dataTable emptyMessage="Nenhum registro encontrado"
-			var="funcionario" editable="true" rows="8" paginator="true">
+		<p:dataTable emptyMessage="Nenhum registro encontrado" var="funcionario"
+			value="#{buscarFuncView.funcionarios}" editable="true" rows="8" paginator="true">
 			
 			<f:facet name="footer">
 				<p:commandButton value="Novo" action="cadastroFunc.xhtml" />
 			</f:facet>
 			
-			<p:column headerText="Código" sortable="true">
-				<h:outputText/>
+			<p:column headerText="CPF" sortable="true">
+				<h:outputText value="#{funcionario.CPF}" />
 			</p:column>
 			
-			<p:column headerText="nome" sortable="true">
-				<h:outputText/>
+			<p:column headerText="Nome" sortable="true">
+				<h:outputText value="#{funcionario.nomeFuncionario}"/>
 			</p:column>
 			
-			<p:column headerText="cpf" sortable="true">
-				<h:outputText/>
+			<p:column headerText="Setor" sortable="true">
+				<h:outputText value="#{funcionario.setor}"/>
 			</p:column>
+			
+		
 
-			<p:column style="width:35px">
+			
+		</p:dataTable>
+	</h:form>
+
+</ui:decorate>
+
+<!--p:column style="width:35px">
 
 				<p:commandButton icon="ui-icon-pencil" title="Editar Cadastro">
 
@@ -61,10 +69,4 @@
 
 					</p:commandButton>
 
-				</p:column>
-		</p:dataTable>
-	</h:form>
-
-
-
-</ui:decorate>
+				</p:column> -->
