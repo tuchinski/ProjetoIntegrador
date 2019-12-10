@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.ManagedBean;
 import javax.faces.view.ViewScoped;
+import javax.validation.constraints.Email;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -26,6 +27,7 @@ public class CadastraFuncionarioView {
 	private String nomeFuncionario;
 	private String sexo;
 	private String telefone;
+	@Email
 	private String e_mail;
 	private String endereco;
 	private String setor;
