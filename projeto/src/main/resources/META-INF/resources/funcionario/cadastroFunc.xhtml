@@ -49,12 +49,13 @@
 
 			<p:outputLabel value="Setor" />
 			<p:selectOneMenu id="setor" required="true" requiredMessage="Necessário incluir Setor" value="#{cadastraFuncionarioView.setor}"  >
+				<f:selectItem noSelectionOption="true" itemLabel="Selecione uma opção"/>
 				<f:selectItems value="#{cadastraFuncionarioView.setores}" var="c" itemLabel="#{c} -> #{c.setorDepartamento.nome_departamento}" />
 			</p:selectOneMenu>
 			
 			<p:outputLabel value="Cargo(Permissão)"/>
 			<p:selectOneMenu required="true" requiredMessage="Necessário incluir Cargo" value="#{cadastraFuncionarioView.cargo}">				
-				
+				<f:selectItem noSelectionOption="true" itemLabel="Selecione uma opção"/>
 				<f:selectItem itemLabel="Funcionario"  itemValue="ROLE_FUNCIONARIO"/>
 				<f:selectItem itemLabel="Gerente Setor"  itemValue="ROLE_GERENTE" />
 				<f:selectItem itemLabel="Gerente Departamento"  itemValue="ROLE_GERENTE" />
@@ -73,7 +74,8 @@
 
 		<h:panelGrid columns="2">
 			<p:commandButton value="Salvar" validateClient="true"
-			actionListener="#{cadastraFuncionarioView.salvaFuncionario}" update="frmCadFunc"/>
+			actionListener="#{cadastraFuncionarioView.salvaFuncionario}" 
+			update=":msgGlobal :frmCadFunc:pnlCadFunc"/>
 							
 			<p:commandButton value="Buscar" action="buscarFunc.xhtml?faces-redirect=true"/>
 
