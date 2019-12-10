@@ -14,17 +14,7 @@
 			<p:outputLabel value="Bem vindo, #{menuView.username}"/>		
 		</sec:authenticated>
 	
-		<!-- <sec:authorize access="hasAnyRole('ROLE_USER')">
-			<p:outputLabel value="user role"/>		
-		</sec:authorize>
-		
-		<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
-			<p:outputLabel value="admin role"/>		
-		</sec:authorize>
-			
-		<sec:authorize access="hasAnyRole('ROLE_DIRETOR')">
-			<p:outputLabel value="diretor role"/>		
-		</sec:authorize> -->
+
 	</div>
 	<h:form>
 		<p:panelMenu>
@@ -59,13 +49,15 @@
 					<p:menuitem value="Novo" url="/departamento/cadastroDep.xhtml" />
 					<p:menuitem value="Buscar" url="/departamento/buscarDep.xhtml" />
 				</p:submenu>
-
+				
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<p:submenu label="Funcionário">
 					<p:menuitem value="Novo" url="/funcionario/cadastroFunc.xhtml" />
 
 					<p:menuitem value="Buscar" url="/funcionario/buscarFunc.xhtml" />
 
 				</p:submenu>
+				</sec:authorize>
 			</sec:authorize>
 
 			</p:submenu>
