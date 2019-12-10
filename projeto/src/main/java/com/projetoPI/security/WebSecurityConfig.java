@@ -24,6 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 					
 		    
 		    http.authorizeRequests()
+		    .mvcMatchers("/documentos/documento.xhtml").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE,FUNCIONARIO")
 		    .mvcMatchers("/funcionario/cadastroFunc.xhtml").hasRole("ADMIN")
 		    .mvcMatchers("/compendio/*").hasAnyRole("ADMIN,DIRETOR")
 		    .mvcMatchers("/funcionario/*").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE")
@@ -31,7 +32,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		    .mvcMatchers("/setor/*").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE")
 		    .mvcMatchers("/documentos/validaDocumento.xhtml").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE")
 		    .mvcMatchers("/categoria/*").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE,FUNCIONARIO")
-		    .mvcMatchers("/documentos/documento.xhtml").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE,FUNCIONARIO")
 		    .mvcMatchers("/documentos/documentosRejeitados.xhtml").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE,FUNCIONARIO")
 		    .mvcMatchers("/paginaprincipal/buscarCompendio.xhtml").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE,FUNCIONARIO");
 //		    .antMatchers("/javax.faces.resource/**").permitAll();
