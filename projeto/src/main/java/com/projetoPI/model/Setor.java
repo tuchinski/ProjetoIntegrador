@@ -17,7 +17,7 @@ public class Setor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY )
 //	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	@Column(name = "setor_id")
-	private	String setor_id;
+	private	long setor_id;
 	
 	@NotNull
 	private String nomeSetor;
@@ -31,7 +31,7 @@ public class Setor {
 		super();
 	}
 
-	public Setor(String setor_id, String nomeSetor) {
+	public Setor( long setor_id, String nomeSetor) {
 		super();
 		this.setor_id = setor_id;
 		this.nomeSetor = nomeSetor;
@@ -55,11 +55,11 @@ public class Setor {
 	
 	}
 
-	public String getSetor_id() {
+	public long getSetor_id() {
 		return this.setor_id;
 	}
 	
-	public void setSetor_id(String setor_id) {
+	public void setSetor_id(long setor_id) {
 		this.setor_id = setor_id;
 	}
 
