@@ -53,15 +53,19 @@ public class CadastraFuncionarioView {
 			funcionarioStorageService.storeFuncionario(rg, cpf, nomeFuncionario, sexo, telefone, e_mail, endereco,
 					setor, cargo, senha);
 			FacesUtil.addMsgInfo("Funcionario Salvo com Sucesso");
+			this.setRg("");
+			this.setCpf("");
+			this.setNomeFuncionario("");
+			this.setSexo("");
+			this.setTelefone("");
+			this.setE_mail("");
+			this.setEndereco("");
+			this.setSetor("");
+			this.setCargo("");
+			
 		}
 		
-//		System.out.println(f.getNomeFuncionario());
-//		if (f != null) {
-//			
-//		} else {
 
-		
-//		}
 	}
 
 	public String getRg() {

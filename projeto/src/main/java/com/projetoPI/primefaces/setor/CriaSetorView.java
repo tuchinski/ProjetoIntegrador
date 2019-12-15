@@ -50,15 +50,12 @@ public class CriaSetorView {
 	}
 	
 	public void salvaSetor() {
-//		System.out.println(text);
-		
-		
+
 		System.out.println(this.text);
 		if(this.text.isEmpty()) {
 			System.out.println("String vazia");
 			FacesUtil.addMsgInfo("Não é possível criar um Setor sem nome!!!");
 		}else {
-//			System.out.println("aaaaa" + selectedDepto.getNome_departamento());
 			this.service.storeSetor(this.text,this.selectedDepto);
 			FacesUtil.addMsgInfo("Setor Salvo com Sucesso");
 		}

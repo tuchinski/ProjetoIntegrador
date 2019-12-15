@@ -26,7 +26,7 @@ public class SetorConverter implements Converter<Setor> {
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Setor value) {
 		
-		return value.getSetor_id();
+		return Long.toString( value.getSetor_id());
 	}
 
 }
