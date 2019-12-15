@@ -17,12 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	private ImplementsUserDetailsService userDetailsService;
 	
 		@Override
-		  protected void configure(HttpSecurity http) throws Exception {
-			
-		    // require all requests to be authenticated except for the resources
-//		    ;
-					
-		    
+		  protected void configure(HttpSecurity http) throws Exception {		    
 		    http.authorizeRequests()
 		    .mvcMatchers("/documentos/documento.xhtml").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE,FUNCIONARIO")
 		    .mvcMatchers("/funcionario/cadastroFunc.xhtml").hasRole("ADMIN")
@@ -34,8 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		    .mvcMatchers("/categoria/*").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE,FUNCIONARIO")
 		    .mvcMatchers("/documentos/documentosRejeitados.xhtml").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE,FUNCIONARIO")
 		    .mvcMatchers("/paginaprincipal/buscarCompendio.xhtml").hasAnyRole("ADMIN,CHEFEDEPTO,DIRETOR,GERENTE,FUNCIONARIO");
-//		    .antMatchers("/javax.faces.resource/**").permitAll();
-//	        .permitAll().anyRequest().authenticated();
+
 		    
 		    
 		    // login
@@ -53,17 +47,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			auth.userDetailsService(userDetailsService)
 			.passwordEncoder(new BCryptPasswordEncoder());
 		}
-
-
-//		  @Autowired
-//		  public void configureGlobal(AuthenticationManagerBuilder auth)
-//		      throws Exception {
-//		    auth.inMemoryAuthentication().withUser("john.doe")
-//		        .password("{noop}1234").roles("USER").and()
-//		        .withUser("jane.doe").password("{noop}5678").roles("ADMIN");
-//			  
-//			auth.userDetailsService(userDetailsService)
-//			.passwordEncoder(new BCryptPasswordEncoder());
-//		  }
 
 }

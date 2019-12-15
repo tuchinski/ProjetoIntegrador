@@ -13,12 +13,8 @@ services:
         networks: 
             - banco-backend
     backend:
-        build:
-            # dockerfile: springboot.dockerfile
-            dockerfile: s2.dockerfile
-            context: .
-        image: tuchinski/springboot_projintegrador
-        container_name: spring_boot
+        image: tuchinski/projintegrador:v1.1
+        container_name: spring_boot_atual
         environment: 
             SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/projPI?useSSL=false&allowPublicKeyRetrieval=true
             SPRING_DATASOURCE_USERNAME: root

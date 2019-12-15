@@ -1,4 +1,4 @@
-insert into projPI.role(nome_role) values
+insert into `projPI`.`role`(nome_role) values
 	('ROLE_ADMIN'),
 	('ROLE_GERENTE'),
 	('ROLE_FUNCIONARIO'),
